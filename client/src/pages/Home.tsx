@@ -1,16 +1,31 @@
 import "./Home.css";
-import ship1 from "../assets/images/ships/ship1.png";
-import ship2 from "../assets/images/ships/ship2.png";
-import ship3 from "../assets/images/ships/ship3.png";
+
+const ships = [
+  {
+    name: "Exodius",
+    image: "../src/assets/images/ships/ship1.png",
+    text: "Laissez vous emporter",
+  },
+  {
+    name: "Pandora",
+    image: "../src/assets/images/ships/ship2.png",
+    text: "Plus vite que la lumière",
+  },
+  {
+    name: "Gérard",
+    image: "../src/assets/images/ships/ship3.png",
+    text: "Toujours plus loin",
+  },
+];
 
 function Home() {
   return (
     <section>
       <figure className="ship-highlight">
-        <img src={ship1} alt="exodius" className="ship-img" />
+        <img src={ships[0].image} alt="exodius" className="ship-img" />
         <figcaption className="ship-txt">
-          <h2>Exodius</h2>
-          <p> Laissez vous emporter</p>
+          <h2>{ships[0].name}</h2>
+          <p> {ships[0].text}</p>
         </figcaption>
         <section className="button-group">
           <button type="button" className="button-rent">
@@ -23,10 +38,10 @@ function Home() {
       </figure>
 
       <figure className="ship-highlight">
-        <img src={ship2} alt="Pandora" className="ship-img" />
+        <img src={ships[1].image} alt="Pandora" className="ship-img" />
         <figcaption className="ship-txt">
-          <h2>Pandora</h2>
-          <p> Plus vite que la lumière</p>
+          <h2>{ships[1].name}</h2>
+          <p> {ships[1].text}</p>
         </figcaption>
         <section className="button-group">
           <button type="button" className="button-rent">
@@ -39,10 +54,10 @@ function Home() {
       </figure>
 
       <figure className="ship-highlight">
-        <img src={ship3} alt="Gérard" className="ship-img" />
+        <img src={ships[2].image} alt="Gérard" className="ship-img" />
         <figcaption className="ship-txt">
-          <h2> Gérard</h2>
-          <p>Toujours plus loin</p>
+          <h2> {ships[2].name}</h2>
+          <p>{ships[2].text}</p>
         </figcaption>
         <section className="button-group">
           <button type="button" className="button-rent">
