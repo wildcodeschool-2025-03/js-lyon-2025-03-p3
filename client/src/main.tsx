@@ -11,7 +11,10 @@ import App from "./App";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
-import Ship from "./pages/Ship";
+import AddShip from "./pages/AddShip";
+import Home from "./pages/Home";
+import ShipDetails from "./pages/ShipDetails";
+import Ships from "./pages/Ships";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
@@ -22,14 +25,29 @@ import Ship from "./pages/Ship";
 // You can add more routes as you build out your app!
 const router = createBrowserRouter([
   {
-    path: "/", // The root path
-    element: <App />, // Renders the App component for the home page
+    element: <App />,
+    children: [
+      {
+        path: "/", // The root path
+        element: <Home />, // Renders the App component for the home page
+      },
+
+      {
+        path: "/ships",
+        element: <Ships />,
+      },
+
+      {
+        path: "/shipdetails/:id",
+        element: <ShipDetails />,
+      },
+      {
+        path: "/addship",
+        element: <AddShip />,
+      },
+    ],
+    // Try adding a new route! For example, "/about" with an About component
   },
-  {
-    path: "/Ships",
-    element: <Ship />,
-  },
-  // Try adding a new route! For example, "/about" with an About component
 ]);
 
 /* ************************************************************************* */
