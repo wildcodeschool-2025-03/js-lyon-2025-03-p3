@@ -13,11 +13,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   color: #fdfdfd;
   position: absolute;
   width: 100vw;
-  top: 40px;
+  top: 100px;
 }
 .ship-txt > h2 {
   font-size: 3rem;
@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  bottom: 90px;
+  bottom: 70px;
   gap: 4rem;
   padding: 0 2rem 0 2rem;
 }

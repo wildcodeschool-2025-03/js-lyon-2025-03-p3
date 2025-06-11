@@ -1,0 +1,65 @@
+.header {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+.logoWhite {
+  height: 5rem;
+}
+.menuBurger {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+}
+.logosRight {
+  position: absolute;
+  right: 15px;
+  top: 27px;
+  display: flex;
+  gap: 5px;
+}
+.helpLogo {
+  width: 24px;
+  right: 15px;
+}
+.contactLogo {
+  width: 24px;
+}
+.headerNavBar {
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-direction: row;
+  color: white;
+  font-size: large;
+  gap: 20px;
+}
+.headerNavBar > li {
+  padding: 3px;
+}
+.liButton {
+  background-color: azure;
+  color: black;
+  border-radius: 3px;
+}
+@media (min-width: 650px) {
+  .header {
+    justify-content: start;
+    top: 8px;
+  }
+  .logoWhite {
+    margin-left: 1rem;
+  }
+  .menuBurger {
+    display: none;
+  }
+  .logosRight {
+    right: 2rem;
+    gap: 1rem;
+  }
+}
