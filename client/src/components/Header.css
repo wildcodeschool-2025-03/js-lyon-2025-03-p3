@@ -37,7 +37,7 @@
   flex-direction: row;
   color: white;
   font-size: large;
-  gap: 20px;
+  gap: 15px;
 }
 .headerNavBar > li {
   padding: 3px;
