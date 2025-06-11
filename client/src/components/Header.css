@@ -35,18 +35,21 @@
   justify-content: center;
   list-style: none;
   flex-direction: row;
-  color: white;
+  color: var(--text-color);
   font-size: large;
-  gap: 15px;
+  gap: 10px;
 }
 .headerNavBar > li {
-  padding: 3px;
-}
-.liButton {
-  background-color: azure;
-  color: black;
+  padding-inline: 10px;
+  padding-block: 3px;
   border-radius: 3px;
 }
+.headerNavBar > li:hover {
+  transition: ease-in 250ms;
+  background-color: white;
+  color: black;
+}
+
 @media (min-width: 650px) {
   .header {
     justify-content: start;
