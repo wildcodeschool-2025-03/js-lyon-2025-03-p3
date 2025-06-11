@@ -45,12 +45,14 @@
 }
 
 :root {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
   /* color */
   --color-primary: #000;
   --color-secondary: #f77908;
   --text-color: #fdfdfd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
