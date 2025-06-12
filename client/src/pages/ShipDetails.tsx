@@ -9,7 +9,7 @@ function ShipDetails() {
   return (
     <>
       <div className="main-content">
-        <img src={Ship1} alt="ship1" />
+        <img className="ship-img" src={Ship1} alt="ship1" />
         <div className="text-content">
           <h3 className="ship-brand">PICTOR</h3>
           <h2 className="ship-title">ZETA LEONIS</h2>
@@ -20,7 +20,7 @@ function ShipDetails() {
         </div>
       </div>
       <div>
-        <img src={Details} alt="details" />
+        <img className="ship-img" src={Details} alt="details" />
       </div>
     </>
   );
