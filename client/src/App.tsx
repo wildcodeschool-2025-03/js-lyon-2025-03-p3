@@ -1,13 +1,13 @@
 import "./App.css";
+import { Outlet } from "react-router";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <main>
-        <Home />
-      </main>
+      <Header />
+      <Outlet />
       <Footer />
     </>
   );
