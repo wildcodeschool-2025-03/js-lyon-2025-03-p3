@@ -1,23 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
 
-/* const ships = [
-  {
-    name: "Exodius",
-    image: "../src/assets/images/ships/ship1.png",
-    text: "Laissez vous emporter",
-  },
-  {
-    name: "Pandora",
-    image: "../src/assets/images/ships/ship2.png",
-    text: "Plus vite que la lumière",
-  },
-  {
-    name: "Gérard",
-    image: "../src/assets/images/ships/ship3.png",
-    text: "Toujours plus loin",
-  },
-]; */
 interface ShipsProps {
   id: number;
   name: string;
@@ -34,23 +17,24 @@ function Home() {
   console.info(ships);
   return (
     <section>
-      <figure className="ship-highlight">
-        <img src={ships[1].image} alt="exodius" className="ship-img" />
-        <figcaption className="ship-txt">
-          <h2>{ships[1].name}</h2>
-          <p> {ships[1].catchphrase}</p>
-        </figcaption>
-        <section className="button-group">
-          <button type="button" className="button-rent">
-            Reservez
-          </button>
-          <button type="button" className="button-info">
-            Plus d'infos
-          </button>
-        </section>
-      </figure>
+      {ships.map((ship) => (
+        <figure key={ship.id} className="ship-highlight">
+          <img src={ship.image} alt="exodius" className="ship-img" />
+          <figcaption className="ship-txt">
+            <h2>{ship.name}</h2>
+            <p> {ship.catchphrase}</p>
+          </figcaption>
+          <section className="button-group">
+            <button type="button" className="button-rent">
+              Reservez
+            </button>
+            <button type="button" className="button-info">
+              Plus d'infos
+            </button>
+          </section>
+        </figure>
+      ))}
     </section>
   );
 }
-
 export default Home;
