@@ -1,10 +1,9 @@
-import Filtre from "../components/Filtre";
+import Filter from "../components/Filter";
 
 function Ships() {
   return (
     <>
-      <Filtre id="filtre-ships" name="Ships Filter" />
-      <h1>Je suis la page qui montre les ships</h1>
+      <Filter id="filtre-ships" name="Ships Filter" />
     </>
   );
 }

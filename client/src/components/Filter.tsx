@@ -1,11 +1,11 @@
 import type React from "react";
 
-type FiltreProps = {
+type FilterProps = {
   id: string;
   name: string;
 };
 
-const Filtre: React.FC<FiltreProps> = (props) => (
+const Filter: React.FC<FilterProps> = (props) => (
   <form className="form">
     <div className="ships">
       {/* <label className="vaisseau-label" htmlFor={props.id}>
@@ -33,4 +33,4 @@ const Filtre: React.FC<FiltreProps> = (props) => (
   </form>
 );
 
-export default Filtre;
+export default Filter;
