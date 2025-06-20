@@ -3,8 +3,8 @@ import databaseClient from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
 
 type Ship = {
-  id: number;
   name: string;
+  image: string;
   catchphrase: string;
 };
 
@@ -14,8 +14,8 @@ class ShipRepository {
   async create(ship: Omit<Ship, "id">) {
     // Execute the SQL INSERT query to add a new ship to the "ship" table
     const [result] = await databaseClient.query<Result>(
-      "insert into ship (title, user_id) values (?, ?)",
-      [ship.name, ship.catchphrase],
+      "insert into ship (name, image ,catchphrase ) values (?, ?, ?)",
+      [ship.name, ship.image, ship.catchphrase],
     );
 
     // Return the ID of the newly inserted ship
