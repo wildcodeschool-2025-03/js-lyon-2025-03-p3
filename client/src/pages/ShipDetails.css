@@ -1,3 +1,4 @@
+/* Partie CSS  au début  */
 .main-content {
   height: 100vh;
 }
@@ -27,4 +28,103 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+/* Partie CSS Hans  */
+
+.Shippart3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5.5rem;
+  background-color: #fdfdfd;
+  margin-left: 3rem;
+}
+.stewardess-img {
+  object-fit: cover;
+  height: 75vh;
+  width: 63vw;
+  border-radius: 5% 0% 0% 5%;
+}
+
+.titre1 {
+  font-family: "Mona Sans", sans-serif;
+}
+.titre2 {
+  font-family: "Mona Sans", sans-serif;
+}
+
+.texte {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  margin: 5;
+}
+
+.gap-start {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 3%;
+}
+.gap-end {
+  display: flex;
+  justify-content: center;
+  margin-right: 63%;
+}
+
+.petittexte {
+  align-items: center;
+  justify-content: center;
+  font-family: "Mona Sans", sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  .Shippart3 {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #fdfdfd;
+  }
+
+  .stewardess-img {
+    display: flex;
+    justify-content: flex-end;
+    object-fit: cover;
+    height: 45vh;
+    width: 80vw;
+    border-radius: 5% 0% 0% 5%;
+  }
+
+  .texte {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    margin: 5;
+  }
+
+  .petittexte {
+    align-items: center;
+    justify-content: center;
+    font-family: "Mona Sans", sans-serif;
+
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    margin-inline: 1em 4em;
+  }
+  .gap-start {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 3%;
+  }
+  .gap-end {
+    display: flex;
+    justify-content: center;
+    margin-right: 17%;
+    margin-bottom: 6rem;
+  }
 }
