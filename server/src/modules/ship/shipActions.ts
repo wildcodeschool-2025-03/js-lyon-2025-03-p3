@@ -43,6 +43,7 @@ const add: RequestHandler = async (req, res, next) => {
     // Extract the ship data from the request body
     const newship = {
       name: req.body.name,
+      image: req.body.image,
       catchphrase: req.body.catchphrase,
     };
 
@@ -50,7 +51,7 @@ const add: RequestHandler = async (req, res, next) => {
     const insertId = await shipRepository.create(newship);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    res.status(201).json({ insertId, newship });
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
