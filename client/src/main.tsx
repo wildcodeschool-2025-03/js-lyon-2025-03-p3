@@ -12,6 +12,7 @@ import App from "./App";
 // Try creating these components in the "pages" folder
 
 import AddShip from "./pages/AddShip";
+import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import ShipDetails from "./pages/ShipDetails";
 import Ships from "./pages/Ships";
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
       {
         path: "/addship",
         element: <AddShip />,
+      },
+
+      {
+        path: "/admin",
+        element: <Admin />,
       },
     ],
     // Try adding a new route! For example, "/about" with an About component
