@@ -4,21 +4,23 @@ import "./ShipDetails.css";
 import "../UI/UX/StyleUIUX.css";
 import BtnBooked from "../UI/UX/btnBooked";
 import BtnMoreInformations from "../UI/UX/btnMoreInformations";
+import stewardess from "../assets/images/Shipdetailsimages/stewardess.png";
 
 function ShipDetails() {
   return (
     <>
-      <div className="main-content">
+      <section className="main-content">
         <img className="ship-img" src={Ship1} alt="ship1" />
-        <div className="text-content">
+        <section className="text-content">
           <h3 className="ship-brand">PICTOR</h3>
           <h2 className="ship-title">ZETA LEONIS</h2>
-        </div>
-        <div className="buttons-wrapper">
+        </section>
+        <section className="buttons-wrapper">
           <BtnBooked />
           <BtnMoreInformations />
-        </div>
-      </div>
+        </section>
+      </section>
+
       <section className="section-wrapper 1">
         <ul className="overview">
           <h3 id="ow-h3">Un confort exceptionnel...</h3>
@@ -40,7 +42,7 @@ function ShipDetails() {
             <span>1</span>
           </li>
         </ul>
-        <div className="section-details one">
+        <section className="section-details one">
           <p className="text-details one">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate
             recusandae rerum similique enim excepturi quibusdam ab adipisci
@@ -63,7 +65,7 @@ function ShipDetails() {
             eligendi asperiores a aperiam dolor!
           </p>
           <img className="details-img" src={Details} alt="details" />
-        </div>
+        </section>
       </section>
       {/* section 2 */}
       <section className="section-wrapper two">
@@ -71,7 +73,7 @@ function ShipDetails() {
           <h3 id="ow-h3">Regarder l'univers...</h3>
           <h4 id="ow-h4">...Depuis son lit</h4>
         </section>
-        <div className="section-details two">
+        <section className="section-details two">
           <img className="details-img two" src={Details} alt="details" />
           <p className="text-details two">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate
@@ -81,7 +83,31 @@ function ShipDetails() {
             consectetur adipisicing elit. Voluptates dolor suscipit explicabo
             nam earum repellendus error tempore consequatur soluta sapiente.
           </p>
-        </div>
+        </section>
+      </section>
+
+      <section>
+        {/* section 3 */}
+        <section>
+          <h2 className="title2-section3">Nos Stewardess...</h2>
+          <h3 className="title3-section3">....à votre service</h3>
+        </section>
+        <section className="section-details-three">
+          <section className="text-details-three">
+            <p className="smalltext">
+              Lorem ipsum dolor sit amet. Aut perferendis esse non laboriosam
+              mollitia et tempora dicta ab doloribus quibusdam sed voluptas
+              veniam ea quae corrupti! Sed nulla recusandae aut sequi iste sed
+              esse recusandae est assumenda voluptatem! Et voluptas quia qui
+              incidunt quod aut nulla magni qui libero maiores quo eius nostrum.
+              Non facilis facere et enim harum eum nesciunt nihil a rerum animi
+              qui dolores nihil eos sunt odio.
+            </p>
+          </section>
+          <section>
+            <img src={stewardess} alt="stewardess" className="stewardess-img" />
+          </section>
+        </section>
       </section>
     </>
   );
