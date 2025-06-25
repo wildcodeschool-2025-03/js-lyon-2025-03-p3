@@ -7,6 +7,6 @@ create table ship (
 
 insert into ship (id, name, image, catchphrase)
 values
-  (1, "Zeta Leonis", "../src/assets/images/ships/ship1.png", "Reussissez vos spaceTrips"),
-  ( 2, "Alpha Andromedae", "../src/assets/images/ships/ship2.png", "Laissez vous emporter"),
-  (3, "Theta Eridani", "../src/assets/images/ships/ship2.png", "Plus vite que la lumière");
+  (1, "Zeta Leonis", "/upload/ship1.png", "Reussissez vos spaceTrips"),
+  ( 2, "Alpha Andromedae", "/upload/ship2.png", "Laissez vous emporter"),
+  (3, "Theta Eridani", "/upload/ship3.png", "Plus vite que la lumière");
