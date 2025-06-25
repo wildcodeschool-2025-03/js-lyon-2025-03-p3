@@ -19,7 +19,11 @@ function Home() {
     <section>
       {ships.map((ship) => (
         <figure key={ship.id} className="ship-highlight">
-          <img src={ship.image} alt="exodius" className="ship-img" />
+          <img
+            src={`http://localhost:3310${ship.image}`}
+            alt="exodius"
+            className="ship-img"
+          />
           <figcaption className="ship-txt">
             <h2>{ship.name}</h2>
             <p> {ship.catchphrase}</p>
