@@ -1,3 +1,4 @@
+/* Partie CSS  au début  */
 .main-content {
   height: 100vh;
 }
@@ -27,6 +28,98 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+/* Partie CSS Hans  Section 3 */
+
+.section-details-three {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5.5rem;
+  background-color: #fdfdfd;
+  margin-left: 3rem;
+}
+.stewardess-img {
+  object-fit: cover;
+  height: 75vh;
+  width: 63vw;
+  border-radius: 5% 0% 0% 5%;
+}
+
+.text-details-three {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  margin: 5;
+}
+
+.title2-section3 {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 3%;
+}
+.title3-section3 {
+  display: flex;
+  justify-content: center;
+  margin-right: 63%;
+}
+
+.smalltext {
+  align-items: center;
+  justify-content: center;
+  font-family: "Mona Sans", sans-serif;
+}
+
+@media screen and (max-width: 650px) {
+  .section-details-three {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #fdfdfd;
+  }
+
+  .stewardess-img {
+    display: flex;
+    justify-content: flex-end;
+    object-fit: cover;
+    height: 45vh;
+    width: 80vw;
+    border-radius: 5% 0% 0% 5%;
+  }
+
+  .text-details-three {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    margin: 5;
+  }
+
+  .smalltext {
+    align-items: center;
+    justify-content: center;
+    font-family: "Mona Sans", sans-serif;
+
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    margin-inline: 1em 4em;
+  }
+  .title2-section3 {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 3%;
+  }
+  .title3-section3 {
+    display: flex;
+    justify-content: center;
+    margin-right: 17%;
+    margin-bottom: 6rem;
+  }
 }
 /* overview */
 
