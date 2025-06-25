@@ -1,5 +1,11 @@
+import Filter from "../components/Filter";
+
 function Ships() {
-  return <h1>Je suis la page qui montre les ships</h1>;
+  return (
+    <>
+      <Filter id="filtre-ships" name="Ships Filter" />
+    </>
+  );
 }
 
 export default Ships;

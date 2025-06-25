@@ -3,12 +3,10 @@
   display: flex;
   flex-direction: column;
   background-color: #000;
-  width: 100vw;
-  Height: 871px;
   color: #fdfdfd;
 }
 .plus {
-  font-size: 250px;
+  font-size: 200px;
   font-weight: 900;
 }
 .informations {
@@ -31,7 +29,8 @@
   flex-direction: column;
   justify-content: start;
   align-items: baseline;
-  margin: 1rem;
+  margin-block: 1rem;
+  margin-left: 1rem;
   line-height: 1.8rem;
 }
 .numbers {
@@ -48,7 +47,7 @@
   align-items: baseline;
 }
 .browsedSub {
-  letter-spacing: .6rem;
+  letter-spacing: 0.6rem;
 }
 .adventurers {
   display: flex;
