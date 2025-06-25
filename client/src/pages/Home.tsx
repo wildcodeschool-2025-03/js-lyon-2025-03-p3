@@ -8,9 +8,10 @@ interface ShipsProps {
   catchphrase: string;
 }
 function Home() {
+  const baseURL = import.meta.env.VITE_API_URL;
   const [ships, setShips] = useState<ShipsProps[]>([]);
   useEffect(() => {
-    fetch("http://localhost:3310/api/ships")
+    fetch(`${baseURL}/api/ships`)
       .then((response) => response.json())
       .then((data) => setShips(data));
   }, []);
