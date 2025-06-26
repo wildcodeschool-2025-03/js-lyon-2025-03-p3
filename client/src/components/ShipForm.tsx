@@ -8,12 +8,12 @@ function ShipForm() {
     catchphrase: "",
   });
 
-  const handleChange = (event: { target: { name: string; value: string } }) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setFormData((dataChanges) => ({ ...dataChanges, [name]: value }));
   };
 
-  const handleSubmit = (event: { preventDefault: () => void }) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     fetch(`${baseURL}/api/ships`, {
       method: "POST",
@@ -21,10 +21,6 @@ function ShipForm() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    }).then((response) => {
-      response.json();
-      setFormData({ name: "", catchphrase: "" });
-      console.log(formData, "formdata");
     });
   };
   return (
