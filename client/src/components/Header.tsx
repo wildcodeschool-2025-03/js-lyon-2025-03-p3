@@ -1,5 +1,6 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import contact from "../assets/images/logos/contact.svg";
 import help from "../assets/images/logos/help.svg";
 import logoWhite from "../assets/images/logos/logoWhite.png";
@@ -37,7 +38,9 @@ function Header() {
         ""
       ) : (
         <ul className="headerNavBar">
-          <li>Notre flotte</li>
+          <li>
+            <Link to="/ships">Notre flotte</Link>
+          </li>
           <li>Nos services</li>
           <li>Nos tarifs</li>
           <li className="liButton">Qui sommes nous ?</li>
