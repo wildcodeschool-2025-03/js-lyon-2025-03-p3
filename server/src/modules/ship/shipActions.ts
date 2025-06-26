@@ -1,4 +1,6 @@
+import path from "node:path";
 import type { RequestHandler } from "express";
+import multer from "multer";
 
 // Import access to data
 import shipRepository from "./shipRepository";
@@ -37,13 +39,27 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
+/* Setting up Multer and and the target repository */
+const storage = multer.diskStorage({
+  //indicate the route to our upload folder from this file
+  destination: path.join(__dirname, "../../../upload"),
+  filename: (_req, _file, callBack) => {
+    //creating a new unique name composer of 19 characters because multer doesn't provide the file extension by default
+    const uniqueName = `${Date.now()}-${Math.round(Math.random() * 10)}.jpg`;
+    // callback takes 2 parameters, first one is error management, Null because shouldn't get one, and second is the unique name we've created.
+    callBack(null, uniqueName);
+  },
+});
+//exporting the middleware in order ti use it in our router.ts
+export const upload = multer({ storage });
+
 // The A of BREAD - Add (Create) operation
 const add: RequestHandler = async (req, res, next) => {
   try {
     // Extract the ship data from the request body
     const newship = {
       name: req.body.name,
-      image: req.body.image,
+      image: `/upload/${req.file?.filename}`,
       catchphrase: req.body.catchphrase,
     };
 
