@@ -1,0 +1,141 @@
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--box-bg-color);
+  border: var(--box-bg-border-color) 1px solid;
+  width: 95vw;
+  margin: 10rem auto 0 auto; /*Delete before to push*/
+}
+
+#group-ships {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+#ships {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 150px;
+  height: fit-content;
+  gap: 0.5rem;
+  margin: 0.5rem;
+}
+
+.btn-ship {
+  width: 150px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--color-secondary);
+  }
+  &:active {
+    background-color: #f9953d;
+  }
+}
+#withdrawalAndReturnText {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+#withdrawal-return {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  width: 200px;
+  margin: 2rem auto;
+}
+#select-withdrawal-return {
+  width: 150px;
+  height: 30px;
+  border-radius: 3px;
+  margin: 10px 10px 10px 0;
+}
+#btn-withdrawal-return {
+  width: fit-content;
+  height: 30px;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#group-services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto 2rem auto;
+}
+#btn-group-services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+#group-date {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  width: 200px;
+}
+#btn-group-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+#btn-seeships {
+  background-color: var(--color-secondary);
+  transition: 0.3s ease-in-out;
+  &:active {
+    background-color: #f9953d;
+  }
+}
+
+.label-date {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 1380px) {
+  .filter-form {
+    flex-direction: row;
+  }
+
+  #ships {
+    width: 490px;
+  }
+  #withdrawal-return {
+    width: 380px;
+  }
+
+  #btn-group-services {
+    width: 498px;
+  }
+
+  #group-date {
+    flex-wrap: nowrap;
+    width: 300px;
+  }
+}
