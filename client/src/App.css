@@ -49,10 +49,27 @@
   --color-primary: #000;
   --color-secondary: #f77908;
   --text-color: #fdfdfd;
+  --box-bg-color: #fdfdfd;
+  --box-bg-border-color: #ddd;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+label,
+input,
+textarea {
+  font-family: "Mona Sans Regular", sans-serif;
+  color: var(--color-primary);
 }
