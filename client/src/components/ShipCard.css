@@ -1,0 +1,89 @@
+.ship-card {
+  position: relative;
+  margin-block: 15rem;
+  margin-inline: auto;
+  height: 30rem;
+  width: 22rem;
+  border-radius: 15px;
+  overflow: hidden;
+  &&:hover {
+    transition: 0.2s ease-in;
+    outline: 5px solid gray;
+    outline-offset: 5px;
+  }
+}
+.logo-name-wrapper {
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-inline: 1rem;
+}
+.logo-manufacturer {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.ship-card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ship-name {
+  font-family: "Supreme Spike", sans-serif;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+}
+.wrapper-infos {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+  gap: 0.7rem;
+}
+.ship-infos {
+  display: flex;
+}
+.icon-info {
+  display: flex;
+  background-color: var(--color-secondary);
+  border-radius: 10px;
+  margin-inline: 0.5rem;
+  padding-inline: 0.3rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.btn-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.BtnMoreInformations,
+.btnBooked {
+  height: 22px;
+  border-radius: 12px;
+}
+
+.prices-info {
+  width: 100%;
+  font-size: small;
+  position: absolute;
+  bottom: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  color: var(--text-color);
+}
+
+.prices-info > p:last-child {
+  color: gray;
+}

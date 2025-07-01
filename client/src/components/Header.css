@@ -44,11 +44,6 @@
   padding-block: 3px;
   border-radius: 3px;
 }
-.headerNavBar > li:hover {
-  transition: ease-in 250ms;
-  background-color: white;
-  color: black;
-}
 
 @media (min-width: 650px) {
   .header {
@@ -66,3 +61,37 @@
     gap: 1rem;
   }
 }
+
+.home-render {
+  li:hover {
+    transition: ease-in 250ms;
+    background-color: var(--text-color);
+    color: var(--color-primary);
+  }
+}
+
+.base-render {
+  color: black;
+  li:hover {
+    transition: ease-in 250ms;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+  }
+}
+
+/* Texte des li selon la page (normal, pas hover) */
+/* .header.home .headerNavBar li {
+  color: white;
+} */
+
+/* .header.other .headerNavBar li {
+  color: black;
+} */
+
+/* .header.home .headerNavBar li:hover {
+  background-color: black;
+} */
+
+/* .header.other .headerNavBar li:hover {
+  background-color: white;
+} */
