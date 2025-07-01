@@ -1,27 +1,32 @@
 /* Partie CSS  au début  */
-.main-content {
-  height: 100vh;
-}
 
-.text-content {
+ .text-content{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: absolute;
-  width: 100%;
-  color: var(--text-color);
-  top: 100px;
+  top: 15vh;
+  font-family: "Supreme Spike";
+ width:100vw;
+  #text-content-width{
+    #ship-brand{
+      text-align: center;
+      position: relative;
+      color: var(--text-color);
+      font-family: "Supreme Spike";
+      font-size:1rem ;
+      letter-spacing:2rem ;
+  }
+    #ship-title{
+      color: var(--text-color);
+      font-size:2.5rem ;
+      font-family: "Supreme Spike";
+      width: fit-content;
+    }
+  }
 }
-
-.ship-brand {
-  letter-spacing: 1rem;
-  text-indent: 1rem;
-  position: relative;
-  top: 0.5rem;
-}
-
-.buttons-wrapper {
+.buttons-wrapper{
   width: 100%;
   position: absolute;
   bottom: 5rem;
@@ -30,211 +35,244 @@
   gap: 1rem;
 }
 
-/* Partie CSS Hans  Section 3 */
-
-.section-details-three {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 5.5rem;
-  background-color: #fdfdfd;
-  margin-left: 3rem;
-}
-.stewardess-img {
-  object-fit: cover;
-  height: 75vh;
-  width: 63vw;
-  border-radius: 5% 0% 0% 5%;
-}
-
-.text-details-three {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-
-  margin: 5;
-}
-
-.title2-section3 {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 3%;
-}
-.title3-section3 {
-  display: flex;
-  justify-content: center;
-  margin-right: 63%;
-}
-
-.smalltext {
-  align-items: center;
-  justify-content: center;
-  font-family: "Mona Sans", sans-serif;
-}
-
-@media screen and (max-width: 650px) {
-  .section-details-three {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 1.5rem;
-    background-color: #fdfdfd;
-  }
-
-  .stewardess-img {
-    display: flex;
-    justify-content: flex-end;
-    object-fit: cover;
-    height: 45vh;
-    width: 80vw;
-    border-radius: 5% 0% 0% 5%;
-  }
-
-  .text-details-three {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-
-    margin: 5;
-  }
-
-  .smalltext {
-    align-items: center;
-    justify-content: center;
-    font-family: "Mona Sans", sans-serif;
-
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    margin-inline: 1em 4em;
-  }
-  .title2-section3 {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 3%;
-  }
-  .title3-section3 {
-    display: flex;
-    justify-content: center;
-    margin-right: 17%;
-    margin-bottom: 6rem;
-  }
-}
 /* overview */
-
-.overview {
-  text-align: center;
-  width: 100%;
+  #section-overview{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+.overview{
   display: flex;
   flex-direction: column;
-  padding-inline: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 4rem;
+  padding: 0 1rem;
+  margin: 2rem auto 0rem auto;
   list-style: none;
-  gap: 1rem;
+  font-family: "Mona Sans SemiBold", sans-serif;
+  width: 100vw;
 }
-.ow-list {
+.ow-h3{
+  position: relative;
+  left: 5%;
+  font-family: "Mona Sans Bold", sans-serif;
+  font-size: 1.7rem;
+  width: fit-content;
+  height: fit-content;
+}
+.ow-h4{
+  position: relative;
+  left: 59%;
+  font-family: "Mona Sans SemiBold", sans-serif;
+  font-size: 1rem;
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 5rem;
+}
+.ow-list{
   display: flex;
+  padding: 0.3rem 0;
 }
-#ow-h3 {
-  text-align: center;
-}
-#ow-h4 {
-  text-align: right;
-}
-.ow-line {
+.ow-line{
   flex-grow: 1;
-  margin-inline: 0.5rem;
-  margin-top: 0.8rem;
+  margin: 0.5rem 0.8rem;
   height: 1px;
   border-radius: 1px;
   background: linear-gradient(to right, black, white);
 }
 
 /* section 1 */
-.section-wrapper {
+.section-wrapper{
   position: relative;
   height: fit-content;
-  margin-bottom: 5rem;
+  margin: 5rem 0 5rem 0;
   justify-content: space-between;
 }
-.section-details {
-  width: 80vw;
+.section-details-one{
+  width: 100vw;
   margin-top: 2rem;
   display: flex;
-  position: relative;
-  justify-self: end;
+  justify-content: end;
+  align-items: center;
 }
-.section-details > .text-details {
-  width: 90%;
-  height: 5rem;
+.section-details-one > .text-details-one{
+  width: 80%;
+  height: 10rem;
   overflow-y: scroll;
-  overflow-x: clip;
-  background-color: white;
-  border-radius: 10px;
+  background-color: var(--text-color);
+  border-radius: 0 10px 10px 0;
   padding: 0.5rem;
   position: absolute;
-  top: 85%;
-  right: 20%;
+  bottom:-10vh;
+  left: 5%;
   z-index: 1;
 }
-
-.details-img {
-  width: 100%;
-  height: 100%;
-  margin-right: 1rem;
-  border-radius: 10px;
+.details-img-right{
+  width: 80vw;
+  height: 30vh;
+  border-radius: 25px 0 0 25px;
   object-fit: cover;
-  object-position: center;
-  overflow-x: hidden;
-  margin-inline: 1rem;
 }
 
 /* Section 2 */
-.section-wrapper.two {
-  margin-top: 7rem;
-  flex-direction: row-reverse;
-  justify-self: start;
+.section-wrapper.two{
+  margin-top: 10rem;
 }
-.section-details.two {
-  position: relative;
-}
-.section-details.two > .text-details.two {
-  width: 90%;
-  height: 5rem;
+.section-details-two > .text-details-two{
+  width: 80%;
+  height: 10rem;
   overflow-y: scroll;
-  overflow-x: clip;
-  background-color: white;
-  border-radius: 10px;
+  background-color: var(--text-color);
+  border-radius: 10px 0 0 10px;
   padding: 0.5rem;
   position: absolute;
-  top: -15%;
-  left: 20%;
+  top:15%;
+  right: 0%;
   z-index: 1;
 }
-@media (min-width: 650px) {
-  .overview {
-    width: fit-content;
+.details-img-left{
+  width: 80vw;
+  height: 30vh;
+  border-radius: 0 25px 25px 0;
+  object-fit: cover;
+  left: 0;
+}
+.text-details-three{
+  position: relative;
+  margin: 5rem 1rem;
+}
+
+/* Section 3 */
+
+.section-details-four{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: var(--text-color);
+  margin: 0 auto 5rem auto;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.text-details-four{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 1rem;
+ }
+
+/*compatibility Tablet 768px => 1024px */
+  @media screen and (min-width: 768px){
+ .ow-h3{
+  left: 25%;
+}
+  .ow-h4{
+    left: 65%;
+}
+}
+
+/*compatibility Desktop&Tablet 1024px and more */
+@media screen and (min-width: 1024px){
+  .text-content>#text-content-width>#ship-title{
+    font-size: 4rem;
   }
-  .section-wrapper {
+  #section-overview{
+    width: 66vw;
+  }
+  #overview-title-ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+  .overview-title{
+    display: flex;
+    flex-direction: column;
+    width: 39vw;
+    margin-top: 1vw;
+  }
+  .ow-h3{
+    font-size: 2rem;
+    left: 1vw;
+  }
+  .ow-h4{
+    left: 24vw;
+  }
+  .ow-h3.two{
+    font-size: 2rem;
+  }
+  .ow-h4.two{
+    left: 18vw
+  }
+  .ow-h3.three{
+    font-size: 2rem;
+    left: 10%;
+  }
+  .ow-h4.three{
+    left: 55%;
+  }
+  .overview{
+    width: 25vw;
+    height: fit-content;
+    margin-top: 6vw;
+  }
+  .overview.two{
+  width: 35vw;
+  gap: none;
+  margin-top:20vh;
+  }
+  .overview.three{
+    width: 35vw;
+  }
+  .overview-reverse{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .section-details-one > .text-details-one{
+  width: 50%;
+  bottom:-5vh;
+  left: 5%;
+  }
+  .section-details-two{
+    width: 60vw;
+  }
+  .section-details-two > .text-details-two{
+    width: 50%;
+    right: 5vw;
+    top: -8%;
+  }
+  .details-img-right{
+    width: 60vw;
+    height: 55vh;
+  }
+  .details-img-left{
+    width: 60vw;
+    height: 55vh;
+  }
+  .section-wrapper{
     display: flex;
   }
-  .section-details {
-    width: 75vw;
-    height: 40vh;
+  .section-details-three{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5.5rem;
+
+    margin-left: 3rem;
   }
-  .section-details > .text-details {
-    width: 80%;
-    right: 40%;
-    top: 85%;
+  .text-details-three{
+    position: absolute;
+    width: 30vw;
+    top: 45%;
+    right: 3%;
   }
-  .section-details.two > .text-details.two {
-    right: 40%;
-    top: -5%;
+  .section-details-four{
+    width: 60vw;
   }
-  .overview.two {
-    padding-top: 4rem;
-    width: fit-content;
+  .text-details-four{
+    position: absolute;
+    width: 30vw;
+    top: 45%;
+    left: 3%;
   }
 }
+
