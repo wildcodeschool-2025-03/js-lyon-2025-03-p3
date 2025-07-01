@@ -1,6 +1,7 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { useLocation } from "react-router";
 import contact from "../assets/images/logos/contact.svg";
 import help from "../assets/images/logos/help.svg";
 import logoWhite from "../assets/images/logos/logoWhite.png";
@@ -11,6 +12,14 @@ function Header() {
   // Init a useState as a boolean to define if the screen is smaller or equal to 650px, if the size <= 650 isMobile === true
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 650);
   // Using a useEffect to re render the component dynamically depending on our window size
+
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  console.log("PATHNAME:", location.pathname);
+  const isShipDetails = location.pathname
+    .toLowerCase()
+    .startsWith("/shipdetails");
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 650) {
@@ -26,7 +35,7 @@ function Header() {
   }, []);
 
   return (
-    <section className="header">
+    <section className={"header"}>
       <img className="menuBurger" src={menu} alt="menu burger" />
 
       <img
@@ -37,7 +46,9 @@ function Header() {
       {isMobile ? (
         ""
       ) : (
-        <ul className="headerNavBar">
+        <ul
+          className={`headerNavBar ${isHome || isShipDetails ? "home-render" : "base-render"}`}
+        >
           <li>
             <Link to="/ships">Notre flotte</Link>
           </li>
