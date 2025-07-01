@@ -1,20 +1,18 @@
 import "./ShipForm.css";
-import { useState } from "react";
+import { useNavigate } from "react-router";
 
 function ShipForm() {
   const baseURL = import.meta.env.VITE_API_URL;
-  const [formData, setFormData] = useState({
-    name: "",
-    catchphrase: "",
-  });
+  const navigate = useNavigate();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData((dataChanges) => ({ ...dataChanges, [name]: value }));
-  };
-
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const formData = {
+      name: form.get("name") as string,
+      catchphrase: form.get("catchphrase") as string,
+    };
+
     fetch(`${baseURL}/api/ships`, {
       method: "POST",
       headers: {
@@ -22,7 +20,9 @@ function ShipForm() {
       },
       body: JSON.stringify(formData),
     });
+    navigate("/");
   };
+
   return (
     <form className="ship-form" onSubmit={handleSubmit}>
       <input
@@ -30,22 +30,19 @@ function ShipForm() {
         placeholder="Nom du vaisseau"
         type="text"
         name="name"
-        value={formData.name}
-        onChange={handleChange}
       />
-      {/* Next will be the image input */}
+      {/* image input will come here */}
       <input
         id="input-catchphrase"
         placeholder="Votre slogan"
         type="text"
         name="catchphrase"
-        value={formData.catchphrase}
-        onChange={handleChange}
       />
       <button id="button-addShip" type="submit">
-        Creez votre offre
+        Créez votre offre
       </button>
     </form>
   );
 }
+
 export default ShipForm;
