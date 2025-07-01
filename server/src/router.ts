@@ -7,11 +7,11 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Define item-related routes
-import shipActions from "./modules/ship/shipActions";
+import shipActions, { upload } from "./modules/ship/shipActions";
 
 router.get("/api/ships", shipActions.browse);
 router.get("/api/ships/:id", shipActions.read);
-router.post("/api/ships", shipActions.add);
+router.post("/api/ships", upload.single("image"), shipActions.add);
 
 /* ************************************************************************* */
 
