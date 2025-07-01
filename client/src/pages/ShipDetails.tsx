@@ -1,11 +1,10 @@
-
-import Ship1 from "../assets/images/ships/ship_1.webp";
 import "./ShipDetails.css";
 import "../UI/UX/StyleUIUX.css";
 import BtnBooked from "../UI/UX/btnBooked";
+import bedroom from "../assets/images/ships/ship_1-bedroom_1.webp";
 import BtnMoreInformations from "../UI/UX/btnMoreInformations";
 import livingroom from "../assets/images/ships/ship_1-living_room_2.webp";
-import bedroom from "../assets/images/ships/ship_1-bedroom_1.webp";
+import Ship1 from "../assets/images/ships/ship_1.webp";
 import stewardess from "../assets/images/Shipdetailsimages/stewardess.webp";
 
 
