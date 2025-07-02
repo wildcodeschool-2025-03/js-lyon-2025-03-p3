@@ -8,15 +8,15 @@ create table ship (
 create table user (
   id int unsigned primary key auto_increment not null,
   email varchar(100) not null UNIQUE,
-  password varchar(100) not null
+  hashed_password varchar(255) not null
 );
 
 insert into ship (id, name, image, catchphrase)
 values
   (1, "Zeta Leonis", "/upload/ship1.png", "Reussissez vos spaceTrips"),
-  ( 2, "Alpha Andromedae", "/upload/ship2.png", "Laissez vous emporter"),
+  (2, "Alpha Andromedae", "/upload/ship2.png", "Laissez vous emporter"),
   (3, "Theta Eridani", "/upload/ship3.png", "Plus vite que la lumière");
 
-  insert into user (id, email, password)
+  insert into user (id, email, hashed_password)
   values
   (1, "test@test.com", "test123nohash");
