@@ -3,6 +3,7 @@
   position: absolute;
   display: flex;
   justify-content: center;
+      top: 8px;
   z-index: 1;
 }
 .logoWhite {
@@ -48,7 +49,6 @@
 @media (min-width: 650px) {
   .header {
     justify-content: start;
-    top: 8px;
   }
   .logoWhite {
     margin-left: 1rem;
