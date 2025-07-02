@@ -5,21 +5,16 @@ function ShipForm() {
   const baseURL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    //FormData => Browser API who will prepare our form datas (files or not) before sending it to the back.
     const form = new FormData(event.currentTarget);
-    const formData = {
-      name: form.get("name") as string,
-      catchphrase: form.get("catchphrase") as string,
-    };
 
-    fetch(`${baseURL}/api/ships`, {
+    await fetch(`${baseURL}/api/ships`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      body: form,
     });
+
     navigate("/");
   };
 
@@ -30,13 +25,21 @@ function ShipForm() {
         placeholder="Nom du vaisseau"
         type="text"
         name="name"
+        required
       />
-      {/* image input will come here */}
+      <input
+        id="input-img"
+        placeholder="Nom du vaisseau"
+        type="file"
+        name="image"
+        required
+      />
       <input
         id="input-catchphrase"
         placeholder="Votre slogan"
         type="text"
         name="catchphrase"
+        required
       />
       <button id="button-addShip" type="submit">
         Créez votre offre
