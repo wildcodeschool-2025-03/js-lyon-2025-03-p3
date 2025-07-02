@@ -1,19 +1,23 @@
-import Details from "../assets/images/ships/SHIP_1-Living_Room_2-Square.png";
-import Ship1 from "../assets/images/ships/ship1.png";
 import "./ShipDetails.css";
 import "../UI/UX/StyleUIUX.css";
 import BtnBooked from "../UI/UX/btnBooked";
+import bedroom from "../assets/images/ships/ship_1-bedroom_1.webp";
 import BtnMoreInformations from "../UI/UX/btnMoreInformations";
-import stewardess from "../assets/images/Shipdetailsimages/stewardess.png";
+import livingroom from "../assets/images/ships/ship_1-living_room_2.webp";
+import Ship1 from "../assets/images/ships/ship_1.webp";
+import stewardess from "../assets/images/Shipdetailsimages/stewardess.webp";
+
 
 function ShipDetails() {
   return (
     <>
-      <section className="main-content">
+      <section id="main-content">
         <img className="ship-img" src={Ship1} alt="ship1" />
         <section className="text-content">
-          <h3 className="ship-brand">PICTOR</h3>
-          <h2 className="ship-title">ZETA LEONIS</h2>
+          <section id="text-content-width">
+            <h3 id="ship-brand">PICTOR</h3>
+            <h2 id="ship-title">ZETA LEONIS</h2>
+          </section>
         </section>
         <section className="buttons-wrapper">
           <BtnBooked />
@@ -21,29 +25,35 @@ function ShipDetails() {
         </section>
       </section>
 
-      <section className="section-wrapper 1">
-        <ul className="overview">
-          <h3 id="ow-h3">Un confort exceptionnel...</h3>
-          <h4 id="ow-h4">...Où que vous soyez</h4>
-          <li className="ow-list">
-            Salon <div className="ow-line" />
-            <span>1</span>
-          </li>
-          <li className="ow-list">
-            Chambre <div className="ow-line" />
-            <span>1</span>
-          </li>
-          <li className="ow-list">
-            Salle de bain <div className="ow-line" />
-            <span>1</span>
-          </li>
-          <li className="ow-list">
-            Salle de massage <div className="ow-line" />
-            <span>1</span>
-          </li>
-        </ul>
-        <section className="section-details one">
-          <p className="text-details one">
+      <section className="section-wrapper one">
+        <section id="section-overview">
+          <section id="overview-title-ul">
+            <section className="overview-title">
+              <h3 className="ow-h3">Un confort exceptionnel...</h3>
+              <h4 className="ow-h4">...Où que vous soyez</h4>
+            </section>
+            <ul className="overview">
+              <li className="ow-list">
+                Salon <div className="ow-line" />
+                <span>1</span>
+              </li>
+              <li className="ow-list">
+                Chambre <div className="ow-line" />
+                <span>1</span>
+              </li>
+              <li className="ow-list">
+                Salle de bain <div className="ow-line" />
+                <span>1</span>
+              </li>
+              <li className="ow-list">
+                Salle de massage <div className="ow-line" />
+                <span>1</span>
+              </li>
+            </ul>
+          </section> 
+        </section>
+        <section className="section-details-one">
+          <p className="text-details-one">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate
             recusandae rerum similique enim excepturi quibusdam ab adipisci
             officiis, dolor obcaecati ut quia error magnam odit eos nihil!
@@ -64,18 +74,30 @@ function ShipDetails() {
             odit eveniet est nesciunt, voluptates quibusdam voluptatibus
             eligendi asperiores a aperiam dolor!
           </p>
-          <img className="details-img" src={Details} alt="details" />
+          <img className="details-img-right" src={livingroom} alt="details" />
         </section>
       </section>
       {/* section 2 */}
       <section className="section-wrapper two">
-        <section className="overview two">
-          <h3 id="ow-h3">Regarder l'univers...</h3>
-          <h4 id="ow-h4">...Depuis son lit</h4>
+        <section className="overview-reverse">
+          <section className="overview two">
+            <h3 className="ow-h3 two">Regarder l'univers...</h3>
+            <h4 className="ow-h4 two">...Depuis son lit</h4>
+          </section>
+          <section className="overview-img">
+            <img className="details-img-left" src={bedroom} alt="details" />
+          </section>
         </section>
-        <section className="section-details two">
-          <img className="details-img two" src={Details} alt="details" />
-          <p className="text-details two">
+        <section className="section-details-two">
+          <p className="text-details-two">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate
+            recusandae rerum similique enim excepturi quibusdam ab adipisci
+            officiis, dolor obcaecati ut quia error magnam odit eos nihil!
+            Molestiae ipsam eius, minus labore. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Voluptates dolor suscipit explicabo
+            nam earum repellendus error tempore consequatur soluta sapiente.
+          </p>
+          <p className="text-details-three">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate
             recusandae rerum similique enim excepturi quibusdam ab adipisci
             officiis, dolor obcaecati ut quia error magnam odit eos nihil!
@@ -85,16 +107,16 @@ function ShipDetails() {
           </p>
         </section>
       </section>
-
       <section>
         {/* section 3 */}
-        <section>
-          <h2 className="title2-section3">Nos Stewardess...</h2>
-          <h3 className="title3-section3">....à votre service</h3>
-        </section>
-        <section className="section-details-three">
-          <section className="text-details-three">
-            <p className="smalltext">
+        <section className="section-wrapper three">
+          <section className="overview three">
+            <h3 className="ow-h3 three">Nos Stewardess...</h3>
+            <h4 className="ow-h4 three">....à votre service</h4>
+          </section>
+          <section className="section-details-four">
+              <img src={stewardess} alt="stewardess" className="details-img-right" />
+            <p className="text-details-four">
               Lorem ipsum dolor sit amet. Aut perferendis esse non laboriosam
               mollitia et tempora dicta ab doloribus quibusdam sed voluptas
               veniam ea quae corrupti! Sed nulla recusandae aut sequi iste sed
@@ -103,9 +125,7 @@ function ShipDetails() {
               Non facilis facere et enim harum eum nesciunt nihil a rerum animi
               qui dolores nihil eos sunt odio.
             </p>
-          </section>
-          <section>
-            <img src={stewardess} alt="stewardess" className="stewardess-img" />
+            
           </section>
         </section>
       </section>
