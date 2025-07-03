@@ -1,6 +1,7 @@
-import type { RequestHandler } from "express";
-
 import argon2 from "argon2";
+import type { RequestHandler } from "express";
+import jwt from "jsonwebtoken";
+import type { JwtPayload } from "jsonwebtoken";
 
 // Import access to data
 import userRepository from "../user/userRepository";
@@ -24,11 +25,27 @@ const login: RequestHandler = async (req, res, next) => {
     if (verified) {
       //destructuring the user, extracting the password and using all the other element in our response, the last element with ... will contain all the elements we didn't extract, in our case : id, email, is_admin
       const { hashed_password, ...userWithoutHashedPassword } = user;
-      res.json(userWithoutHashedPassword);
-      //console info to help visualize the process
-      console.info("credential matching");
+      const myPayload: JwtPayload = {
+        sub: user.id.toString(),
+        isAdmin: user.is_admin,
+      };
+
+      const token = await jwt.sign(
+        myPayload,
+        process.env.APP_SECRET as string,
+        {
+          expiresIn: "1h",
+        },
+      );
+      res.json({
+        token,
+        user: userWithoutHashedPassword,
+      }); //console info to help visualize the process
+      console.info(
+        `credentials matching, welcome ${user.email} your token : ${token}`,
+      );
     } else {
-      console.info("email adress or password not matching");
+      console.info("email adress and password aren't matching");
       res.sendStatus(422);
     }
   } catch (err) {
