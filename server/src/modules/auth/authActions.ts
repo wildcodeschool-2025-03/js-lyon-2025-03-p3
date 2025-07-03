@@ -10,7 +10,7 @@ const login: RequestHandler = async (req, res, next) => {
     // Fetch a specific user from the database based on the provided email
     const user = await userRepository.readByEmailWithPassword(req.body.email);
 
-    if (user == null) {
+    if (user === null) {
       console.info("user not found");
       res.sendStatus(422);
       return;
