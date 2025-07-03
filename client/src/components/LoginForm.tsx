@@ -14,7 +14,7 @@ function LoginForm() {
 
     console.info(formData); // vérifie que tout est bon
 
-    fetch(`${baseURL}/api/users`, {
+    fetch(`${baseURL}/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
