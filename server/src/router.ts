@@ -14,6 +14,9 @@ router.get("/api/ships/:id", shipActions.read);
 router.post("/api/ships", upload.single("image"), shipActions.add);
 
 /* ************************************************************************* */
+import authActions from "./modules/auth/authActions";
+
+router.post("/api/login", authActions.login);
 
 import userActions from "./modules/user/userActions";
 
