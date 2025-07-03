@@ -1,53 +1,38 @@
-import { useState } from "react";
+import { useNavigate } from "react-router";
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const baseURL = import.meta.env.VITE_API_URL;
+  const navigate = useNavigate();
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const formData = {
+      email: form.get("email") as string,
+      password: form.get("password") as string,
+    };
 
-    console.info("Données envoyées :", { email, password }); // vérifie que tout est bon
+    console.info(formData); // vérifie que tout est bon
 
-    try {
-      const response = await fetch("http://localhost:3310/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const result = await response.json();
-      console.log("Réponse serveur :", result);
-    } catch (error) {
-      console.error("Erreur lors de la requête :", error);
-    }
+    fetch(`${baseURL}/api/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    navigate("/");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <input type="email" id="email" name="email" required />
       </div>
       <div>
         <label htmlFor="password">Mot de passe:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <input type="password" id="password" name="password" required />
       </div>
       <button type="submit">Login</button>
     </form>
