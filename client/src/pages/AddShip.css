@@ -1,0 +1,15 @@
+.addShip-wrapper {
+  margin-block: 10rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.addShip-title {
+  font-size: xx-large;
+  font-family: "Mona sans", sans-serif;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  width: 100%;
+  text-align: center;
+}
