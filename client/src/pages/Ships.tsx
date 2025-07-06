@@ -18,14 +18,14 @@ function Ships() {
   console.info(ships);
 
   return (
-    <>
+    <section className="shipsPage-wrapper">
       <Filter />
-      <section className="shipCards-wrapper">
+      <div className="shipCards-wrapper">
         {ships.map((ship) => (
           <ShipCard key={ship.id} name={ship.name} image={ship.image} />
         ))}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 

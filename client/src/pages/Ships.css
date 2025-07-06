@@ -1,3 +1,6 @@
+.shipsPage-wrapper {
+  margin-bottom: 5rem;
+}
 .shipCards-wrapper {
   display: flex;
   flex-wrap: wrap;
