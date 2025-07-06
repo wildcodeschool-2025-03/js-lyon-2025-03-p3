@@ -6,7 +6,8 @@
   background-color: var(--box-bg-color);
   border: var(--box-bg-border-color) 1px solid;
   width: 95vw;
-  margin: 10rem auto 0 auto; /*Delete before to push*/
+  margin-block: 10rem 5rem;
+  margin-inline: auto;
 }
 
 #group-ships {
