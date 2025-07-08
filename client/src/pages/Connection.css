@@ -1,0 +1,20 @@
+.connection-register {
+  margin-block: 10rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.credentials-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.credentials-input > input {
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: rgba(156, 156, 156, 0.294);
+  padding-left: 3px;
+}

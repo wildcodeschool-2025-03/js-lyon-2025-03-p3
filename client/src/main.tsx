@@ -13,6 +13,7 @@ import App from "./App";
 
 import AddShip from "./pages/AddShip";
 import Admin from "./pages/Admin";
+import Connection from "./pages/Connection";
 import Home from "./pages/Home";
 import ShipDetails from "./pages/ShipDetails";
 import Ships from "./pages/Ships";
@@ -46,7 +47,10 @@ const router = createBrowserRouter([
         path: "/addship",
         element: <AddShip />,
       },
-
+      {
+        path: "/connexion",
+        element: <Connection />,
+      },
       {
         path: "/admin",
         element: <Admin />,

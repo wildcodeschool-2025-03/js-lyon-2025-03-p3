@@ -11,9 +11,6 @@ function LoginForm() {
       email: form.get("email") as string,
       password: form.get("password") as string,
     };
-
-    console.info(formData); // vérifie que tout est bon
-
     fetch(`${baseURL}/api/login`, {
       method: "POST",
       headers: {
@@ -25,17 +22,32 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-      </div>
-      <div>
-        <label htmlFor="password">Mot de passe:</label>
-        <input type="password" id="password" name="password" required />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <section className="section-login">
+      <h2>Connectez-vous</h2>
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="credentials-input">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Votre email"
+            required
+          />
+        </div>
+        <div className="credentials-input">
+          <label htmlFor="password">Mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Votre mot de passe"
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </section>
   );
 }
 

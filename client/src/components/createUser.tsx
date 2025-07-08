@@ -23,26 +23,33 @@ function CreateUser() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          placeholder="votre email"
-          type="email"
-          id="input-email"
-          name="email"
-          required
-        />
-      </div>
+    <section className="section-register">
+      <h2>Ou bien créez un compte</h2>
 
-      <input
-        placeholder="votre mot de passe"
-        type="password"
-        id="input-password"
-        name="password"
-        required
-      />
-      <button type="submit">Créer le Compte </button>
-    </form>
+      <form onSubmit={handleSubmit} className="register-form">
+        <div className="credentials-input">
+          <label htmlFor="email">Email</label>
+          <input
+            placeholder="Votre email"
+            type="email"
+            id="input-email"
+            name="email"
+            required
+          />
+        </div>
+        <div className="credentials-input">
+          <label htmlFor="password">Mot de passe</label>
+          <input
+            placeholder="Votre mot de passe"
+            type="password"
+            id="input-password"
+            name="password"
+            required
+          />{" "}
+        </div>
+        <button type="submit">Créer le Compte </button>
+      </form>
+    </section>
   );
 }
 export default CreateUser;
