@@ -6,7 +6,8 @@
   color: #fdfdfd;
 }
 .plus {
-  font-size: 200px;
+  color: var(--color-secondary);
+  font-size: 150px;
   font-weight: 900;
 }
 .informations {
@@ -34,10 +35,12 @@
   line-height: 1.8rem;
 }
 .numbers {
+  color: var(--color-secondary);
   font-size: 48px;
   font-weight: 900;
 }
 .informationsSub {
+  color: var(--color-secondary);
   font-size: 24px;
   font-weight: 900;
 }
