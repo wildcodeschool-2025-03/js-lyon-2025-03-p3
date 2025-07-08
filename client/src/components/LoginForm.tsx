@@ -1,8 +1,25 @@
+import { useOutletContext } from "react-router";
 import { useNavigate } from "react-router";
+
+type User = {
+  id: number;
+  email: string;
+  is_admin: boolean;
+};
+
+type Auth = {
+  user: User;
+  token: string;
+};
 
 function LoginForm() {
   const baseURL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
+
+  const { setAuth } = useOutletContext() as {
+    auth: Auth | null;
+    setAuth: (auth: Auth | null) => void;
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -11,14 +28,31 @@ function LoginForm() {
       email: form.get("email") as string,
       password: form.get("password") as string,
     };
-    fetch(`${baseURL}/api/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-    navigate("/");
+
+    try {
+      const response = await fetch(`${baseURL}/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Identifiants invalides");
+      }
+
+      const data = await response.json();
+      setAuth(data); // Assure-toi que le backend renvoie bien { user, token }
+
+      // 🔐 Stockage simple du token dans localStorage
+      localStorage.setItem("user", JSON.stringify(data));
+
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+      alert("Erreur de connexion");
+    }
   };
 
   return (
