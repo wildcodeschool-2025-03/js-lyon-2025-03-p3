@@ -11,6 +11,15 @@ create table user (
   hashed_password varchar(255) not null
 );
 
+create table rent (
+  id int unsigned primary key auto_increment not null,
+  user_id int unsigned not null,
+  ship_id int unsigned not null,
+  rent_time datetime not null default current_timestamp,
+  foreign key (user_id) references user(id),
+  foreign key (ship_id) references ship(id)
+);
+
 insert into ship (id, name, image, catchphrase)
 values
   (1, "Zeta Leonis", "/upload/ship1.png", "Reussissez vos spaceTrips"),
