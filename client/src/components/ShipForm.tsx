@@ -20,27 +20,30 @@ function ShipForm() {
 
   return (
     <form className="ship-form" onSubmit={handleSubmit}>
-      <input
-        id="input-shipName"
-        placeholder="Nom du vaisseau"
-        type="text"
-        name="name"
-        required
-      />
-      <input
-        id="input-img"
-        placeholder="Nom du vaisseau"
-        type="file"
-        name="image"
-        required
-      />
-      <input
-        id="input-catchphrase"
-        placeholder="Votre slogan"
-        type="text"
-        name="catchphrase"
-        required
-      />
+      <div className="label-wrapper">
+        <label htmlFor="input-shipName">Nom du vaisseau *</label>
+        <input
+          id="input-shipName"
+          placeholder="Nom du vaisseau"
+          type="text"
+          name="name"
+          required
+        />
+      </div>
+      <div className="label-wrapper">
+        <label htmlFor="input-catchphrase">Phrase d'accroche *</label>
+        <input
+          id="input-catchphrase"
+          placeholder="Votre slogan"
+          type="text"
+          name="catchphrase"
+          required
+        />
+      </div>
+      <div className="label-wrapper inputFile">
+        <label htmlFor="input-img">Envoyez votre image *</label>
+        <input id="input-img" type="file" name="image" required />
+      </div>
       <button id="button-addShip" type="submit">
         Créez votre offre
       </button>
