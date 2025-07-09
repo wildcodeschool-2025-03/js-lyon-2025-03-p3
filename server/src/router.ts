@@ -24,4 +24,10 @@ router.get("/api/users", userActions.browse);
 router.get("/api/users/:id", userActions.read);
 router.post("/api/users", userActions.hashPassword, userActions.add);
 
+import verifyToken from "./middlewares/verifiyToken";
+
+router.get("/api/me", verifyToken, (req, res) => {
+  res.json(req.user); // tu verras l'ID et isAdmin du token
+});
+
 export default router;
