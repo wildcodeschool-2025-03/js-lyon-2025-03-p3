@@ -22,7 +22,12 @@ function Ships() {
       <Filter />
       <div className="shipCards-wrapper">
         {ships.map((ship) => (
-          <ShipCard key={ship.id} name={ship.name} image={ship.image} />
+          <ShipCard
+            key={ship.id}
+            name={ship.name}
+            image={ship.image}
+            id={ship.id}
+          />
         ))}
       </div>
     </section>

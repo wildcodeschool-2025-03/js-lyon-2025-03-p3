@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         element: <Admin />,
       },
       {
-        path: "/locationreservation",
+        path: "/locationreservation/:id",
         element: <LocationReservation />,
       },
     ],

@@ -47,7 +47,9 @@ function Header() {
         ""
       ) : (
         <ul
-          className={`headerNavBar ${isHome || isShipDetails ? "home-render" : "base-render"}`}
+          className={`headerNavBar ${
+            isHome || isShipDetails ? "home-render" : "base-render"
+          }`}
         >
           <li>
             <Link to="/ships">Notre flotte</Link>

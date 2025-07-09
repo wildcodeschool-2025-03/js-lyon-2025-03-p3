@@ -11,8 +11,9 @@ import speed from "../assets/images/iconCard/speed.svg";
 interface ShipProps {
   name: string;
   image: string;
+  id: number;
 }
-function ShipCard({ name, image }: ShipProps) {
+function ShipCard({ name, image, id }: ShipProps) {
   const baseURL = import.meta.env.VITE_API_URL;
   return (
     <figure className="ship-card">
@@ -47,7 +48,7 @@ function ShipCard({ name, image }: ShipProps) {
       </section>
       <img src={`${baseURL}${image}`} alt={name} />
       <div className="btn-wrapper">
-        <BtnBooked />
+        <BtnBooked id={id} />
         <BtnMoreInformations />
       </div>
       <div className="prices-info">

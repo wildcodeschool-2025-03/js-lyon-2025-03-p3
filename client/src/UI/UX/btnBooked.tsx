@@ -1,9 +1,14 @@
+import { Link } from "react-router";
 import "./StyleUIUX.css";
 
-export default function BtnBooked() {
+interface ShipProps {
+  id: number;
+}
+
+export default function BtnBooked({ id }: ShipProps) {
   return (
     <button type="button" className="btnBooked">
-      Réservez
+      <Link to={`/locationreservation/${id}`}>Réservez</Link>
     </button>
   );
 }

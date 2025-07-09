@@ -1,14 +1,14 @@
 import "./ShipDetails.css";
 import "../UI/UX/StyleUIUX.css";
 import BtnBooked from "../UI/UX/btnBooked";
-import bedroom from "../assets/images/ships/ship_1-bedroom_1.webp";
 import BtnMoreInformations from "../UI/UX/btnMoreInformations";
+import stewardess from "../assets/images/Shipdetailsimages/stewardess.webp";
+import bedroom from "../assets/images/ships/ship_1-bedroom_1.webp";
 import livingroom from "../assets/images/ships/ship_1-living_room_2.webp";
 import Ship1 from "../assets/images/ships/ship_1.webp";
-import stewardess from "../assets/images/Shipdetailsimages/stewardess.webp";
-
 
 function ShipDetails() {
+  const id = 1;
   return (
     <>
       <section id="main-content">
@@ -20,7 +20,7 @@ function ShipDetails() {
           </section>
         </section>
         <section className="buttons-wrapper">
-          <BtnBooked />
+          <BtnBooked id={id} />
           <BtnMoreInformations />
         </section>
       </section>
@@ -50,7 +50,7 @@ function ShipDetails() {
                 <span>1</span>
               </li>
             </ul>
-          </section> 
+          </section>
         </section>
         <section className="section-details-one">
           <p className="text-details-one">
@@ -115,7 +115,11 @@ function ShipDetails() {
             <h4 className="ow-h4 three">....à votre service</h4>
           </section>
           <section className="section-details-four">
-              <img src={stewardess} alt="stewardess" className="details-img-right" />
+            <img
+              src={stewardess}
+              alt="stewardess"
+              className="details-img-right"
+            />
             <p className="text-details-four">
               Lorem ipsum dolor sit amet. Aut perferendis esse non laboriosam
               mollitia et tempora dicta ab doloribus quibusdam sed voluptas
@@ -125,7 +129,6 @@ function ShipDetails() {
               Non facilis facere et enim harum eum nesciunt nihil a rerum animi
               qui dolores nihil eos sunt odio.
             </p>
-            
           </section>
         </section>
       </section>
