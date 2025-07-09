@@ -33,10 +33,9 @@ function Home() {
           </figcaption>
           <section className="button-group">
             <button type="button" className="button-rent">
-              <Link to="./locationreservation" state={{ shipId: ship.id }}>
-                Réservez
-              </Link>
+              <Link to={`/locationreservation/${ship.id}`}>Réservez</Link>
             </button>
+
             <button type="button" className="button-info">
               Plus d'infos
             </button>

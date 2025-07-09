@@ -3,7 +3,7 @@
   position: absolute;
   display: flex;
   justify-content: center;
-      top: 8px;
+  top: 8px;
   z-index: 1;
 }
 .logoWhite {
