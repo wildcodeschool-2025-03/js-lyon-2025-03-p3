@@ -2,6 +2,7 @@ create table ship (
   id int unsigned primary key auto_increment not null,
   name varchar(50) not null,
   image varchar(250),
+  quantity int unsigned not null,
   catchphrase varchar(200) not null
 );
 
@@ -20,11 +21,11 @@ create table rent (
   foreign key (ship_id) references ship(id)
 );
 
-insert into ship (id, name, image, catchphrase)
+insert into ship (id, name, image, catchphrase, quantity)
 values
-  (1, "Zeta Leonis", "/upload/ship1.png", "Reussissez vos spaceTrips"),
-  (2, "Alpha Andromedae", "/upload/ship2.png", "Laissez vous emporter"),
-  (3, "Theta Eridani", "/upload/ship3.png", "Plus vite que la lumière");
+  (1, "Zeta Leonis", "/upload/ship1.png", "Reussissez vos spaceTrips", 2),
+  (2, "Alpha Andromedae", "/upload/ship2.png", "Laissez vous emporter", 3),
+  (3, "Theta Eridani", "/upload/ship3.png", "Plus vite que la lumière", 1);
 
   insert into user (id, email, hashed_password)
   values
