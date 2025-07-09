@@ -15,6 +15,7 @@ import AddShip from "./pages/AddShip";
 import Admin from "./pages/Admin";
 import Connection from "./pages/Connection";
 import Home from "./pages/Home";
+import LocationReservation from "./pages/LocationReservation";
 import ShipDetails from "./pages/ShipDetails";
 import Ships from "./pages/Ships";
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />,
+      },
+      {
+        path: "/locationreservation",
+        element: <LocationReservation />,
       },
     ],
     // Try adding a new route! For example, "/about" with an About component

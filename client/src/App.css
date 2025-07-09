@@ -48,6 +48,8 @@
   /* color */
   --color-primary: #000;
   --color-secondary: #f77908;
+  --color-secondary-hover: #fa9f4f;
+  --color-secondary-active: #fcc595;
   --text-color: #fdfdfd;
   --box-bg-color: #fdfdfd;
   --box-bg-border-color: #ddd;
@@ -71,5 +73,10 @@ label,
 input,
 textarea {
   font-family: "Mona Sans Regular", sans-serif;
+  color: var(--color-primary);
+}
+
+a {
+  text-decoration: none;
   color: var(--color-primary);
 }
