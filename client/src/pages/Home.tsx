@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
+import { Link } from "react-router";
 
 interface ShipsProps {
   id: number;
@@ -16,6 +17,15 @@ function Home() {
       .then((data) => setShips(data));
   }, []);
   console.info(ships);
+
+  const handleAddToCart = (id: number) => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    if (!cart.includes(id)) {
+      cart.push(id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  };
+
   return (
     <section>
       {ships.map((ship) => (
@@ -30,8 +40,12 @@ function Home() {
             <p> {ship.catchphrase}</p>
           </figcaption>
           <section className="button-group">
-            <button type="button" className="button-rent">
-              Reservez
+            <button
+              type="button"
+              className="button-rent"
+              onClick={() => handleAddToCart(ship.id)}
+            >
+              <Link to="./locationreservation">Reservez</Link>
             </button>
             <button type="button" className="button-info">
               Plus d'infos

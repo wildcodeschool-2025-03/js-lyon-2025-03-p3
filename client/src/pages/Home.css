@@ -14,16 +14,20 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: #fdfdfd;
+  color: var(--text-color);
   position: absolute;
   width: 100vw;
   top: 100px;
 }
 .ship-txt > h2 {
   font-size: 3rem;
+  color: var(--text-color);
+  font-family: "Supreme Spike", Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 .ship-txt > p {
   font-size: 1.5rem;
+  color: var(--text-color);
+  font-family: "Supreme Spike", Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 .button-group {
   position: absolute;
@@ -43,6 +47,12 @@ button {
   font-weight: bold;
 }
 .button-rent {
-  color: #fdfdfd;
-  background-color: #f77908;
+  color: var(--text-color);
+  background-color: var(--color-secondary);
+  &:hover {
+    background-color: var(--color-secondary-hover);
+  }
+  &:active {
+    background-color: var(--color-secondary-active);
+  }
 }
