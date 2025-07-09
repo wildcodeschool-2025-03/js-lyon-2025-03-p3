@@ -1,5 +1,6 @@
 // Load the express module to create a web application
 
+import cookieParser from "cookie-parser";
 import express from "express";
 
 const app = express();
@@ -19,10 +20,6 @@ const app = express();
 // For this pedagogical template, the CORS code allows CLIENT_URL in development mode (when process.env.CLIENT_URL is defined).
 
 import cors from "cors";
-
-if (process.env.CLIENT_URL != null) {
-  app.use(cors({ origin: [process.env.CLIENT_URL] }));
-}
 
 // If you need to allow extra origins, you can add something like this:
 
@@ -51,6 +48,16 @@ app.use(
 // 4. `express.raw()`: Parses requests with raw binary data.
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
+app.use(cookieParser());
+
+if (process.env.CLIENT_URL != null) {
+  app.use(
+    cors({
+      origin: process.env.CLIENT_URL, // ex: "http://localhost:3000"
+      credentials: true, // ✅ Autorise les cookies cross-origin
+    }),
+  );
+}
 
 app.use(express.json());
 // app.use(express.urlencoded());

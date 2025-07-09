@@ -35,6 +35,7 @@ function LoginForm() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(formData),
       });
 
@@ -44,9 +45,6 @@ function LoginForm() {
 
       const data = await response.json();
       setAuth(data); // Assure-toi que le backend renvoie bien { user, token }
-
-      // 🔐 Stockage simple du token dans localStorage
-      localStorage.setItem("user", JSON.stringify(data));
 
       navigate("/");
     } catch (err) {
