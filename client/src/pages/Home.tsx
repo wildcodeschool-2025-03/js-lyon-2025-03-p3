@@ -18,14 +18,6 @@ function Home() {
   }, []);
   console.info(ships);
 
-  const handleAddToCart = (id: number) => {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    if (!cart.includes(id)) {
-      cart.push(id);
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  };
-
   return (
     <section>
       {ships.map((ship) => (
@@ -40,12 +32,10 @@ function Home() {
             <p> {ship.catchphrase}</p>
           </figcaption>
           <section className="button-group">
-            <button
-              type="button"
-              className="button-rent"
-              onClick={() => handleAddToCart(ship.id)}
-            >
-              <Link to="./locationreservation">Reservez</Link>
+            <button type="button" className="button-rent">
+              <Link to="./locationreservation" state={{ shipId: ship.id }}>
+                Réservez
+              </Link>
             </button>
             <button type="button" className="button-info">
               Plus d'infos

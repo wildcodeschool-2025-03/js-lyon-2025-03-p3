@@ -15,9 +15,9 @@ import AddShip from "./pages/AddShip";
 import Admin from "./pages/Admin";
 import Connection from "./pages/Connection";
 import Home from "./pages/Home";
+import LocationReservation from "./pages/LocationReservation";
 import ShipDetails from "./pages/ShipDetails";
 import Ships from "./pages/Ships";
-import LocationReservation from "./pages/LocationReservation";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
