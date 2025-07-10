@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
-import { Link } from "react-router";
+import BtnBooked from "../UI/UX/btnBooked";
+import BtnMoreInformations from "../UI/UX/btnMoreInformations";
 
 interface ShipsProps {
   id: number;
@@ -32,13 +33,8 @@ function Home() {
             <p> {ship.catchphrase}</p>
           </figcaption>
           <section className="button-group">
-            <button type="button" className="button-rent">
-              <Link to={`/locationreservation/${ship.id}`}>Réservez</Link>
-            </button>
-
-            <button type="button" className="button-info">
-              Plus d'infos
-            </button>
+            <BtnBooked id={ship.id} />
+            <BtnMoreInformations />
           </section>
         </figure>
       ))}

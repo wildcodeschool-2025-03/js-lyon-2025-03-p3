@@ -7,6 +7,12 @@ type User = {
   hashed_password: string;
   is_admin: boolean;
 };
+type Rent = {
+  id: number;
+  user_id: number;
+  ship_id: number;
+  rent_time: Date;
+};
 
 class UserRepository {
   // The C of CRUD - Create operation
@@ -22,6 +28,13 @@ class UserRepository {
     return result.insertId;
   }
 
+  async createRent(shipId: number, userId: number) {
+    const [result] = await databaseClient.query<Result>(
+      "INSERT INTO rent(user_id, ship_id) VALUES (?, ?)",
+      [userId, shipId],
+    );
+    return result.insertId;
+  }
   // The Rs of CRUD - Read operations
 
   async read(id: number) {
@@ -51,6 +64,14 @@ class UserRepository {
 
     // Return the array of ships
     return rows as User[];
+  }
+
+  async readRent() {
+    // Execute the SQL SELECT query to retrieve all ships from the "ship" table
+    const [rows] = await databaseClient.query<Rows>("select * from rent");
+
+    // Return the array of ships
+    return rows as Rent[];
   }
 
   // The U of CRUD - Update operation

@@ -1,32 +1,32 @@
 /* Partie CSS  au début  */
 
- .text-content{
+.text-content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: absolute;
   top: 15vh;
-  font-family: "Supreme Spike";
- width:100vw;
-  #text-content-width{
-    #ship-brand{
+  font-family: "Supreme Spike", sans-serif;
+  width: 100vw;
+  #text-content-width {
+    #ship-brand {
       text-align: center;
       position: relative;
       color: var(--text-color);
-      font-family: "Supreme Spike";
-      font-size:1rem ;
-      letter-spacing:2rem ;
-  }
-    #ship-title{
+      font-family: "Supreme Spike", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 2rem;
+    }
+    #ship-title {
       color: var(--text-color);
-      font-size:2.5rem ;
-      font-family: "Supreme Spike";
+      font-size: 2.5rem;
+      font-family: "Supreme Spike", sans-serif;
       width: fit-content;
     }
   }
 }
-.buttons-wrapper{
+.buttons-wrapper {
   width: 100%;
   position: absolute;
   bottom: 5rem;
@@ -36,12 +36,12 @@
 }
 
 /* overview */
-  #section-overview{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-.overview{
+#section-overview {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.overview {
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
@@ -50,7 +50,7 @@
   font-family: "Mona Sans SemiBold", sans-serif;
   width: 100vw;
 }
-.ow-h3{
+.ow-h3 {
   position: relative;
   left: 5%;
   font-family: "Mona Sans Bold", sans-serif;
@@ -58,7 +58,7 @@
   width: fit-content;
   height: fit-content;
 }
-.ow-h4{
+.ow-h4 {
   position: relative;
   left: 59%;
   font-family: "Mona Sans SemiBold", sans-serif;
@@ -67,11 +67,11 @@
   height: fit-content;
   margin-bottom: 5rem;
 }
-.ow-list{
+.ow-list {
   display: flex;
   padding: 0.3rem 0;
 }
-.ow-line{
+.ow-line {
   flex-grow: 1;
   margin: 0.5rem 0.8rem;
   height: 1px;
@@ -80,20 +80,20 @@
 }
 
 /* section 1 */
-.section-wrapper{
+.section-wrapper {
   position: relative;
   height: fit-content;
   margin: 5rem 0 5rem 0;
   justify-content: space-between;
 }
-.section-details-one{
+.section-details-one {
   width: 100vw;
   margin-top: 2rem;
   display: flex;
   justify-content: end;
   align-items: center;
 }
-.section-details-one > .text-details-one{
+.section-details-one > .text-details-one {
   width: 80%;
   height: 10rem;
   overflow-y: scroll;
@@ -101,11 +101,11 @@
   border-radius: 0 10px 10px 0;
   padding: 0.5rem;
   position: absolute;
-  bottom:-10vh;
+  bottom: -10vh;
   left: 5%;
   z-index: 1;
 }
-.details-img-right{
+.details-img-right {
   width: 80vw;
   height: 30vh;
   border-radius: 25px 0 0 25px;
@@ -113,10 +113,10 @@
 }
 
 /* Section 2 */
-.section-wrapper.two{
+.section-wrapper.two {
   margin-top: 10rem;
 }
-.section-details-two > .text-details-two{
+.section-details-two > .text-details-two {
   width: 80%;
   height: 10rem;
   overflow-y: scroll;
@@ -124,25 +124,25 @@
   border-radius: 10px 0 0 10px;
   padding: 0.5rem;
   position: absolute;
-  top:15%;
+  top: 15%;
   right: 0%;
   z-index: 1;
 }
-.details-img-left{
+.details-img-left {
   width: 80vw;
   height: 30vh;
   border-radius: 0 25px 25px 0;
   object-fit: cover;
   left: 0;
 }
-.text-details-three{
+.text-details-three {
   position: relative;
   margin: 5rem 1rem;
 }
 
 /* Section 3 */
 
-.section-details-four{
+.section-details-four {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -152,105 +152,105 @@
   margin-left: 0px;
   margin-right: 0px;
 }
-.text-details-four{
+.text-details-four {
   display: flex;
   flex-direction: column;
   gap: 3rem;
   margin: 1rem;
- }
+}
 
 /*compatibility Tablet 768px => 1024px */
-  @media screen and (min-width: 768px){
- .ow-h3{
-  left: 25%;
-}
-  .ow-h4{
+@media screen and (min-width: 768px) {
+  .ow-h3 {
+    left: 25%;
+  }
+  .ow-h4 {
     left: 65%;
-}
+  }
 }
 
 /*compatibility Desktop&Tablet 1024px and more */
-@media screen and (min-width: 1024px){
-  .text-content>#text-content-width>#ship-title{
+@media screen and (min-width: 1024px) {
+  .text-content > #text-content-width > #ship-title {
     font-size: 4rem;
   }
-  #section-overview{
+  #section-overview {
     width: 66vw;
   }
-  #overview-title-ul{
+  #overview-title-ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
   }
-  .overview-title{
+  .overview-title {
     display: flex;
     flex-direction: column;
     width: 39vw;
     margin-top: 1vw;
   }
-  .ow-h3{
+  .ow-h3 {
     font-size: 2rem;
     left: 1vw;
   }
-  .ow-h4{
+  .ow-h4 {
     left: 24vw;
   }
-  .ow-h3.two{
+  .ow-h3.two {
     font-size: 2rem;
   }
-  .ow-h4.two{
-    left: 18vw
+  .ow-h4.two {
+    left: 18vw;
   }
-  .ow-h3.three{
+  .ow-h3.three {
     font-size: 2rem;
     left: 10%;
   }
-  .ow-h4.three{
+  .ow-h4.three {
     left: 55%;
   }
-  .overview{
+  .overview {
     width: 25vw;
     height: fit-content;
     margin-top: 6vw;
   }
-  .overview.two{
-  width: 35vw;
-  gap: none;
-  margin-top:20vh;
+  .overview.two {
+    width: 35vw;
+    gap: none;
+    margin-top: 20vh;
   }
-  .overview.three{
+  .overview.three {
     width: 35vw;
   }
-  .overview-reverse{
+  .overview-reverse {
     display: flex;
     flex-direction: row-reverse;
   }
-  .section-details-one > .text-details-one{
-  width: 50%;
-  bottom:-5vh;
-  left: 5%;
+  .section-details-one > .text-details-one {
+    width: 50%;
+    bottom: -5vh;
+    left: 5%;
   }
-  .section-details-two{
+  .section-details-two {
     width: 60vw;
   }
-  .section-details-two > .text-details-two{
+  .section-details-two > .text-details-two {
     width: 50%;
     right: 5vw;
     top: -8%;
   }
-  .details-img-right{
+  .details-img-right {
     width: 60vw;
     height: 55vh;
   }
-  .details-img-left{
+  .details-img-left {
     width: 60vw;
     height: 55vh;
   }
-  .section-wrapper{
+  .section-wrapper {
     display: flex;
   }
-  .section-details-three{
+  .section-details-three {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -259,20 +259,19 @@
 
     margin-left: 3rem;
   }
-  .text-details-three{
+  .text-details-three {
     position: absolute;
     width: 30vw;
     top: 45%;
     right: 3%;
   }
-  .section-details-four{
+  .section-details-four {
     width: 60vw;
   }
-  .text-details-four{
+  .text-details-four {
     position: absolute;
     width: 30vw;
     top: 45%;
     left: 3%;
   }
 }
-

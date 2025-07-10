@@ -1,35 +1,25 @@
+.BtnMoreInformations,
 .btnBooked {
-  background-color: #f77908;
-  color: #000;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  width: 150px;
   height: 30px;
+  width: 150px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
   font-family: Mona-sans, sans-serif;
   font-weight: bold;
   font-size: 13px;
-  transition: .35s ease-in-out;
+  color: #000;
+  transition: 0.35s ease-in-out;
+
   &:hover {
     background-color: #033a59;
     color: #fdfdfd;
   }
 }
+.btnBooked {
+  background-color: #f77908;
+}
 
 .BtnMoreInformations {
   background-color: #fdfdfd;
-  color: #000;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  width: 150px;
-  height: 30px;
-  font-family: Mona-sans, sans-serif;
-  font-weight: medium;
-  font-size: 13px;
-  transition: .35s ease-in-out;
-  &:hover {
-    background-color: #033a59;
-    color: #fdfdfd;
-  }
 }

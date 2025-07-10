@@ -1,6 +1,7 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
-// Import access to data
+import type { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import userRepository from "./userRepository";
 
 const hashingOptions = {
@@ -38,6 +39,19 @@ const browse: RequestHandler = async (req, res, next) => {
 
     // Respond with the users in JSON format
     res.json(user);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const browseRent: RequestHandler = async (req, res, next) => {
+  try {
+    // Fetch all items
+    const rent = await userRepository.readRent();
+
+    // Respond with the users in JSON format
+    res.json(rent);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -84,4 +98,38 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, hashPassword };
+const rentShip: RequestHandler = async (req, res) => {
+  console.log("Requête:", req.body, req.cookies);
+  try {
+    // 🔐 Récupère le token depuis le cookie
+    const token = req.cookies.auth_token;
+
+    // ✅ Vérifie et décode le token
+    const payload = jwt.verify(
+      token,
+      process.env.APP_SECRET as string,
+    ) as JwtPayload;
+    // `sub` contain the user id
+    const userId = Number(payload.sub);
+    // sent from the client
+    const shipId = req.body.shipId;
+
+    if (!userId || !shipId) {
+      res.status(400).json({ error: "Paramètres manquants" });
+    }
+
+    const insertId = await userRepository.createRent(shipId, userId);
+
+    res.status(201).json({
+      message: "Réservation confirmée",
+      rent: {
+        user_id: userId,
+        ship_id: shipId,
+        insertId,
+      },
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+export default { browse, read, add, hashPassword, rentShip, browseRent };
