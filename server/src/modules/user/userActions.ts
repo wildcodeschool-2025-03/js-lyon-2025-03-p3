@@ -67,13 +67,29 @@ const read: RequestHandler = async (req, res, next) => {
 
     // If the user is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the user in JSON format
-    if (user == null) {
+    if (user === null) {
       res.sendStatus(404);
     } else {
       res.json(user);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+const readRent: RequestHandler = async (req, res, next) => {
+  try {
+    const shipId = Number(req.params.id);
+    const ship = await userRepository.read(shipId);
+    if (!ship) {
+      res.sendStatus(404);
+      return;
+    }
+
+    // Récupère les réservations
+    const rentCount = await userRepository.readRentSingle(shipId);
+    res.json(rentCount);
+  } catch (err) {
     next(err);
   }
 };
@@ -99,9 +115,8 @@ const add: RequestHandler = async (req, res, next) => {
 };
 
 const rentShip: RequestHandler = async (req, res) => {
-  console.log("Requête:", req.body, req.cookies);
   try {
-    // 🔐 Récupère le token depuis le cookie
+    // Get the token from the cookie
     const token = req.cookies.auth_token;
 
     // ✅ Vérifie et décode le token
@@ -113,7 +128,6 @@ const rentShip: RequestHandler = async (req, res) => {
     const userId = Number(payload.sub);
     // sent from the client
     const shipId = req.body.shipId;
-
     if (!userId || !shipId) {
       res.status(400).json({ error: "Paramètres manquants" });
     }
@@ -128,8 +142,17 @@ const rentShip: RequestHandler = async (req, res) => {
         insertId,
       },
     });
+    console.log("Rent successful:", req.body, req.cookies);
   } catch (err) {
     console.error(err);
   }
 };
-export default { browse, read, add, hashPassword, rentShip, browseRent };
+export default {
+  browse,
+  read,
+  add,
+  hashPassword,
+  rentShip,
+  browseRent,
+  readRent,
+};

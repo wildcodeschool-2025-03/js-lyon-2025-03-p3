@@ -24,6 +24,7 @@ router.get("/api/users", userActions.browse);
 router.get("/api/users/:id", userActions.read);
 router.post("/api/users", userActions.hashPassword, userActions.add);
 router.post("/api/rent", userActions.rentShip);
+router.get("/api/rent/:id", userActions.readRent);
 
 import verifyToken from "./middlewares/verifiyToken";
 

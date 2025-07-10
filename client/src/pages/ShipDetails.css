@@ -27,12 +27,14 @@
   }
 }
 .buttons-wrapper {
-  width: 100%;
   position: absolute;
-  bottom: 5rem;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  width: 100vw;
+  bottom: 70px;
+  gap: 4rem;
+  padding: 0 2rem 0 2rem;
 }
 
 /* overview */

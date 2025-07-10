@@ -23,7 +23,6 @@ class UserRepository {
       "insert into user (email, hashed_password ) values (?, ?)",
       [user.email, user.hashed_password],
     );
-
     // Return the ID of the newly inserted ship
     return result.insertId;
   }
@@ -43,12 +42,11 @@ class UserRepository {
       "select * from user where id = ?",
       [id],
     );
-
     // Return the first row of the result, which represents the ship
     return rows[0] as User;
   }
 
-  async readByEmailWithPassword(email: string) {
+  async readByEmail(email: string) {
     // Execute the SQL SELECT query to retrieve a specific user by its email
     const [rows] = await databaseClient.query<Rows>(
       "select * from user where email = ?",
@@ -61,7 +59,6 @@ class UserRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all ships from the "ship" table
     const [rows] = await databaseClient.query<Rows>("select * from user");
-
     // Return the array of ships
     return rows as User[];
   }
@@ -69,11 +66,19 @@ class UserRepository {
   async readRent() {
     // Execute the SQL SELECT query to retrieve all ships from the "ship" table
     const [rows] = await databaseClient.query<Rows>("select * from rent");
-
     // Return the array of ships
     return rows as Rent[];
   }
 
+  async readRentSingle(shipId: number) {
+    // Execute the SQL SELECT query to retrieve all ships from the "ship" table
+    const [rows] = await databaseClient.query<Rows>(
+      "select * from rent where ship_id = ?",
+      [shipId],
+    );
+    // Return the array of ships
+    return rows as Rent[];
+  }
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
