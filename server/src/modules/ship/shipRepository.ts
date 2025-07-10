@@ -38,8 +38,17 @@ class ShipRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all ships from the "ship" table
     const [rows] = await databaseClient.query<Rows>("select * from ship");
-
     // Return the array of ships
+    return rows as Ship[];
+  }
+
+  async shipAvailable() {
+    const [rows] = await databaseClient.query<Rows>(`
+    select ship.quantity - COUNT(ship_id) as ship_available, ship.name from ship
+    left join rent on ship_id = ship.id
+    group by ship.id
+  `);
+
     return rows as Ship[];
   }
 
