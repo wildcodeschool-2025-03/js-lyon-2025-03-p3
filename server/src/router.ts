@@ -18,6 +18,7 @@ router.post("/api/ships", upload.single("image"), shipActions.add);
 import authActions from "./modules/auth/authActions";
 
 router.post("/api/login", authActions.login);
+router.post("/api/logout", authActions.logout);
 
 import userActions from "./modules/user/userActions";
 
