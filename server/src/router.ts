@@ -11,6 +11,7 @@ import shipActions, { upload } from "./modules/ship/shipActions";
 
 router.get("/api/ships", shipActions.browse);
 router.get("/api/ships/:id", shipActions.read);
+router.get("/api/available/ships", shipActions.shipAvailable);
 router.post("/api/ships", upload.single("image"), shipActions.add);
 
 /* ************************************************************************* */

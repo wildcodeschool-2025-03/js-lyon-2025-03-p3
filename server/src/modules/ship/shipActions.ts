@@ -39,6 +39,15 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
+const shipAvailable: RequestHandler = async (req, res, next) => {
+  try {
+    const ships = await shipRepository.shipAvailable();
+    res.status(200).json(ships);
+  } catch (err) {
+    next(err);
+  }
+};
+
 /* Setting up Multer and and the target repository */
 const storage = multer.diskStorage({
   //indicate the route to our upload folder from this file
@@ -74,4 +83,4 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+export default { browse, read, add, shipAvailable };
