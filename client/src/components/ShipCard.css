@@ -9,6 +9,11 @@
     outline: 5px solid gray;
     outline-offset: 5px;
   }
+  .BtnMoreInformations,
+  .btnBooked {
+    height: 20px;
+    border-radius: 7px;
+  }
 }
 .infos-top {
   display: flex;
@@ -70,13 +75,6 @@
   display: flex;
   justify-content: space-evenly;
 }
-
-.BtnMoreInformations,
-.btnBooked {
-  height: 22px;
-  border-radius: 12px;
-}
-
 .prices-info {
   width: 100%;
   font-size: small;
@@ -86,7 +84,6 @@
   justify-content: space-around;
   color: var(--text-color);
 }
-
 .prices-info > p:last-child {
   color: rgb(167, 165, 165);
 }

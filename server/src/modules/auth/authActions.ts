@@ -8,7 +8,7 @@ import userRepository from "../user/userRepository";
 
 const login: RequestHandler = async (req, res, next) => {
   try {
-    const user = await userRepository.readByEmailWithPassword(req.body.email);
+    const user = await userRepository.readByEmail(req.body.email);
 
     if (user === null) {
       console.info("user not found");

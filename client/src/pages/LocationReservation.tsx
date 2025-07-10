@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ShipCard from "../components/ShipCard";
 import "./LocationReservation.css";
+import RentForm from "../components/RentForm";
 interface ShipProps {
   id: number;
   name: string;
@@ -20,14 +21,10 @@ export default function LocationReservation() {
   console.log(ship);
 
   return ship ? (
-    <section className="reservation-recap">
+    <section className="reservation-recap" key={ship.id}>
       <h2>Vous allez louer le vaisseau suivant :</h2>
-      <ShipCard
-        key={ship.id}
-        name={ship.name}
-        image={ship.image}
-        id={ship.id}
-      />
+      <ShipCard name={ship.name} image={ship.image} id={ship.id} />
+      <RentForm id={ship.id} />
     </section>
   ) : null;
 }
