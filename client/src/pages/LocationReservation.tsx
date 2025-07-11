@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ShipCard from "../components/ShipCard";
+import RentForm from "./RentForm";
 import "./LocationReservation.css";
 interface ShipProps {
   id: number;
@@ -27,7 +28,8 @@ export default function LocationReservation() {
         name={ship.name}
         image={ship.image}
         id={ship.id}
-      />
+      />{" "}
+      <RentForm />
     </section>
   ) : null;
 }

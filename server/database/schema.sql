@@ -30,3 +30,7 @@ values
   insert into user (id, email, hashed_password)
   values
   (1, "test@test.com", "test123nohash");
+
+Insert Into rent ( id ,user_id, ship_id)
+VALUES
+(1,1,2); 
