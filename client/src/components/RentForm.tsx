@@ -21,14 +21,11 @@ function RentForm({ id }: ShipProps) {
       credentials: "include",
     })
       .then((res) => {
-        console.log("🔸 Réponse du serveur :", res);
+        console.log("Server response :", res);
         return res.json();
       })
-      .then((data) => {
-        console.log("🔹 Données reçues :", data);
-      })
       .catch((err) => {
-        console.error("❌ Erreur réseau :", err);
+        console.error("Network error :", err);
       });
   };
   return (

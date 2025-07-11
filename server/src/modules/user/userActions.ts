@@ -119,7 +119,6 @@ const rentShip: RequestHandler = async (req, res) => {
     // Get the token from the cookie
     const token = req.cookies.auth_token;
 
-    // ✅ Vérifie et décode le token
     const payload = jwt.verify(
       token,
       process.env.APP_SECRET as string,
