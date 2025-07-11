@@ -38,7 +38,6 @@ const login: RequestHandler = async (req, res, next) => {
       expiresIn: "1h",
     });
 
-    // 🍪 Envoie dans un cookie httpOnly
     res.cookie("auth_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",

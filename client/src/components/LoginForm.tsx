@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router";
 import { useNavigate } from "react-router";
+import "../components/LoginForm.css";
 
 type User = {
   id: number;
@@ -44,7 +45,7 @@ function LoginForm() {
       }
 
       const data = await response.json();
-      setAuth(data); // Assure-toi que le backend renvoie bien { user, token }
+      setAuth(data);
 
       navigate("/");
     } catch (err) {
@@ -55,7 +56,6 @@ function LoginForm() {
 
   return (
     <section className="section-login">
-      <h2>Connectez-vous</h2>
       <form onSubmit={handleSubmit} className="login-form">
         <div className="credentials-input">
           <label htmlFor="email">Email</label>

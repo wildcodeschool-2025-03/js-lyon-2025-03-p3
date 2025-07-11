@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import "../components/CreateUser.css";
 
 function CreateUser() {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -24,8 +25,6 @@ function CreateUser() {
 
   return (
     <section className="section-register">
-      <h2>Ou bien créez un compte</h2>
-
       <form onSubmit={handleSubmit} className="register-form">
         <div className="credentials-input">
           <label htmlFor="email">Email</label>
