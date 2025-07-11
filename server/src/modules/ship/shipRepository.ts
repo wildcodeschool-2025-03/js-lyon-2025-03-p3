@@ -14,7 +14,7 @@ class ShipRepository {
   async create(ship: Omit<Ship, "id">) {
     // Execute the SQL INSERT query to add a new ship to the "ship" table
     const [result] = await databaseClient.query<Result>(
-      "insert into ship (name, image ,catchphrase ) values (?, ?, ?)",
+      "insert into ship (name, image, catchphrase) values (?, ?, ?)",
       [ship.name, ship.image, ship.catchphrase],
     );
 
