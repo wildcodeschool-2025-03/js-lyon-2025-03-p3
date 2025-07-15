@@ -8,7 +8,7 @@ import userRepository from "../user/userRepository";
 
 const login: RequestHandler = async (req, res, next) => {
   try {
-    const user = await userRepository.readByEmailWithPassword(req.body.email);
+    const user = await userRepository.readByEmail(req.body.email);
 
     if (user === null) {
       console.info("user not found");
@@ -38,7 +38,6 @@ const login: RequestHandler = async (req, res, next) => {
       expiresIn: "1h",
     });
 
-    // 🍪 Envoie dans un cookie httpOnly
     res.cookie("auth_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -57,4 +56,16 @@ const login: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { login };
+const logout: RequestHandler = (req, res) => {
+  res
+    .clearCookie("auth_token", {
+      httpOnly: true,
+      sameSite: "strict",
+      secure: true,
+    })
+    .clearCookie("email", { httpOnly: true, sameSite: "strict", secure: true })
+    .status(200)
+    .json({ message: "Déconnexion réussie" });
+};
+
+export default { login, logout };

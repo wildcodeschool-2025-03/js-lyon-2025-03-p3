@@ -7,6 +7,7 @@ import help from "../assets/images/logos/help.svg";
 import logoWhite from "../assets/images/logos/logoWhite.png";
 import logoWhiteMobile from "../assets/images/logos/logoWhiteMobile.png";
 import menu from "../assets/images/logos/menu.svg";
+import LogoutButton from "../components/LogoutButton";
 
 function Header() {
   // Init a useState as a boolean to define if the screen is smaller or equal to 650px, if the size <= 650 isMobile === true
@@ -57,6 +58,9 @@ function Header() {
           <li>Nos services</li>
           <li>Nos tarifs</li>
           <li className="liButton">Qui sommes nous ?</li>
+          <li>
+            <LogoutButton />
+          </li>
         </ul>
       )}
       <div className="logosRight">

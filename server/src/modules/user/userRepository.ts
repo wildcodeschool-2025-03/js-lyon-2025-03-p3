@@ -7,6 +7,12 @@ type User = {
   hashed_password: string;
   is_admin: boolean;
 };
+type Rent = {
+  id: number;
+  user_id: number;
+  ship_id: number;
+  rent_time: Date;
+};
 
 class UserRepository {
   // The C of CRUD - Create operation
@@ -17,11 +23,17 @@ class UserRepository {
       "insert into user (email, hashed_password ) values (?, ?)",
       [user.email, user.hashed_password],
     );
-
     // Return the ID of the newly inserted ship
     return result.insertId;
   }
 
+  async createRent(shipId: number, userId: number) {
+    const [result] = await databaseClient.query<Result>(
+      "INSERT INTO rent(user_id, ship_id) VALUES (?, ?)",
+      [userId, shipId],
+    );
+    return result.insertId;
+  }
   // The Rs of CRUD - Read operations
 
   async read(id: number) {
@@ -30,12 +42,11 @@ class UserRepository {
       "select * from user where id = ?",
       [id],
     );
-
     // Return the first row of the result, which represents the ship
     return rows[0] as User;
   }
 
-  async readByEmailWithPassword(email: string) {
+  async readByEmail(email: string) {
     // Execute the SQL SELECT query to retrieve a specific user by its email
     const [rows] = await databaseClient.query<Rows>(
       "select * from user where email = ?",
@@ -48,17 +59,26 @@ class UserRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all ships from the "ship" table
     const [rows] = await databaseClient.query<Rows>("select * from user");
-
     // Return the array of ships
     return rows as User[];
   }
 
-  async accept_cgu() {
-    const [rows] = await databaseClient.query<Rows>("select * from user");
-
-    return rows as User[];
+  async readRent() {
+    // Execute the SQL SELECT query to retrieve all ships from the "ship" table
+    const [rows] = await databaseClient.query<Rows>("select * from rent");
+    // Return the array of ships
+    return rows as Rent[];
   }
 
+  async readRentSingle(shipId: number) {
+    // Execute the SQL SELECT query to retrieve all ships from the "ship" table
+    const [rows] = await databaseClient.query<Rows>(
+      "select * from rent where ship_id = ?",
+      [shipId],
+    );
+    // Return the array of ships
+    return rows as Rent[];
+  }
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
