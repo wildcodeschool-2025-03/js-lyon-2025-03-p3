@@ -48,6 +48,7 @@ function LoginForm() {
       setAuth(data);
 
       navigate("/");
+      window.location.reload();
     } catch (err) {
       console.error(err);
       alert("Erreur de connexion");
