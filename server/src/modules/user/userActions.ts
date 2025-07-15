@@ -1,6 +1,7 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
-// Import access to data
+import type { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import userRepository from "./userRepository";
 
 const hashingOptions = {
@@ -44,6 +45,19 @@ const browse: RequestHandler = async (req, res, next) => {
   }
 };
 
+const browseRent: RequestHandler = async (req, res, next) => {
+  try {
+    // Fetch all items
+    const rent = await userRepository.readRent();
+
+    // Respond with the users in JSON format
+    res.json(rent);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The R of BREAD - Read operation
 const read: RequestHandler = async (req, res, next) => {
   try {
@@ -53,13 +67,29 @@ const read: RequestHandler = async (req, res, next) => {
 
     // If the user is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the user in JSON format
-    if (user == null) {
+    if (user === null) {
       res.sendStatus(404);
     } else {
       res.json(user);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+const readRent: RequestHandler = async (req, res, next) => {
+  try {
+    const shipId = Number(req.params.id);
+    const ship = await userRepository.read(shipId);
+    if (!ship) {
+      res.sendStatus(404);
+      return;
+    }
+
+    // Récupère les réservations
+    const rentCount = await userRepository.readRentSingle(shipId);
+    res.json(rentCount);
+  } catch (err) {
     next(err);
   }
 };
@@ -84,4 +114,44 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, hashPassword };
+const rentShip: RequestHandler = async (req, res) => {
+  try {
+    // Get the token from the cookie
+    const token = req.cookies.auth_token;
+
+    const payload = jwt.verify(
+      token,
+      process.env.APP_SECRET as string,
+    ) as JwtPayload;
+    // `sub` contain the user id
+    const userId = Number(payload.sub);
+    // sent from the client
+    const shipId = req.body.shipId;
+    if (!userId || !shipId) {
+      res.status(400).json({ error: "Paramètres manquants" });
+    }
+
+    const insertId = await userRepository.createRent(shipId, userId);
+
+    res.status(201).json({
+      message: "Réservation confirmée",
+      rent: {
+        user_id: userId,
+        ship_id: shipId,
+        insertId,
+      },
+    });
+    console.log("Rent successful:", req.body, req.cookies);
+  } catch (err) {
+    console.error(err);
+  }
+};
+export default {
+  browse,
+  read,
+  add,
+  hashPassword,
+  rentShip,
+  browseRent,
+  readRent,
+};

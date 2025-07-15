@@ -1,35 +1,43 @@
+.BtnMoreInformations,
 .btnBooked {
-  background-color: #f77908;
-  color: #000;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  width: 150px;
   height: 30px;
+  width: 150px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
   font-family: Mona-sans, sans-serif;
   font-weight: bold;
   font-size: 13px;
-  transition: .35s ease-in-out;
+  color: #000;
+  transition: 0.35s ease-in-out;
+
   &:hover {
     background-color: #033a59;
     color: #fdfdfd;
   }
 }
+.btnBooked {
+  background-color: #f77908;
+}
 
 .BtnMoreInformations {
   background-color: #fdfdfd;
-  color: #000;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  width: 150px;
-  height: 30px;
-  font-family: Mona-sans, sans-serif;
-  font-weight: medium;
-  font-size: 13px;
-  transition: .35s ease-in-out;
-  &:hover {
-    background-color: #033a59;
-    color: #fdfdfd;
-  }
+}
+
+.ContainerInfos {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  width: fit-content;
+  height: fit-content;
+  gap: 5px;
+  padding: 4px 5px;
+  margin: 0.5rem 0.5rem 1rem 0;
+  background-color: var(--color-secondary);
+  border-radius: 25px;
+  white-space: nowrap;
+}
+.InfosP {
+  font-family: "Mona Sans Bold", sans-serif;
+  font-size: 1rem;
 }

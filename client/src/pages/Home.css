@@ -39,20 +39,3 @@
   gap: 4rem;
   padding: 0 2rem 0 2rem;
 }
-button {
-  border-style: none;
-  width: 150px;
-  height: 30px;
-  border-radius: 3px;
-  font-weight: bold;
-}
-.button-rent {
-  color: var(--text-color);
-  background-color: var(--color-secondary);
-  &:hover {
-    background-color: var(--color-secondary-hover);
-  }
-  &:active {
-    background-color: var(--color-secondary-active);
-  }
-}
