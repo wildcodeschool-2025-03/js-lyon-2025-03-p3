@@ -9,7 +9,8 @@ create table ship (
 create table user (
   id int unsigned primary key auto_increment not null,
   email varchar(100) not null UNIQUE,
-  hashed_password varchar(255) not null
+  hashed_password varchar(255) not null,
+  is_accept_cgu boolean default true
 );
 
 create table rent (
