@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 function CreateUser() {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -46,6 +46,14 @@ function CreateUser() {
             name="password"
             required
           />{" "}
+        </div>
+        <div className="validate-checkbox">
+          <label htmlFor="accept_cgu">
+            <Link to="/Modality" target="_blank" rel="noopener noreferrer">
+              J'accepte les CGU
+            </Link>
+          </label>
+          <input type="checkbox" id="accept_cgu" name="accept_cgu" required />
         </div>
         <button type="submit">Créer le Compte </button>
       </form>

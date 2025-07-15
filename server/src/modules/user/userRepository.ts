@@ -53,6 +53,12 @@ class UserRepository {
     return rows as User[];
   }
 
+  async accept_cgu() {
+    const [rows] = await databaseClient.query<Rows>("select * from user");
+
+    return rows as User[];
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
