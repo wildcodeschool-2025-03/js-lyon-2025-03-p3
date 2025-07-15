@@ -26,7 +26,7 @@ values
   (1, "Zeta Leonis", "/upload/ship1.png", "Reussissez vos spaceTrips", 2),
   (2, "Alpha Andromedae", "/upload/ship2.png", "Laissez vous emporter", 3),
   (3, "Theta Eridani", "/upload/ship3.png", "Plus vite que la lumière", 1),
-  (4,"Alpha Ursae Minoris", "/upload/ship4.png", "Partez là ou les étoiles vous appellent",2),
+  (4,"Alpha Ursae", "/upload/ship4.png", "Partez là ou les étoiles vous appellent",2),
   (5,"Kappa Persei",  "/upload/ship5.png","Àu-delà des confins connus",2),
   (6,"Kappa Herculis", "/upload/ship6.png","Là où commence le voyage, finit la peur",1),
   (7," -XI Cephei", "/upload/ship7.png","Naviguez entre les étoiles",4),
