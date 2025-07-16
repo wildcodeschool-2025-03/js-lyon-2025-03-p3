@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router";
 
-function LogoutButton() {
+type Props = {
+  onLogout: () => void;
+};
+
+function LogoutButton({ onLogout }: Props) {
   const navigate = useNavigate();
   const handleLogout = async () => {
     await fetch("http://localhost:3310/api/logout", {
@@ -13,7 +17,7 @@ function LogoutButton() {
 
     // Optionnel : redirection ou message
     console.info("Déconnecté");
-    // window.location.reload(); //
+    onLogout();
     navigate("/connexion");
   };
 
