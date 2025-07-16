@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import "../components/CreateUser.css";
 
 function CreateUser() {
   const baseURL = import.meta.env.VITE_API_URL;
-  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,7 +20,7 @@ function CreateUser() {
       },
       body: JSON.stringify(formData),
     });
-    navigate("/");
+    window.location.reload();
   };
 
   const [password, setPassword] = useState("");
