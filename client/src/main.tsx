@@ -14,6 +14,7 @@ import App from "./App";
 import AddShip from "./pages/AddShip";
 import Admin from "./pages/Admin";
 import Connection from "./pages/Connection";
+import DeleteShip from "./pages/DeleteShip";
 import Home from "./pages/Home";
 import LocationReservation from "./pages/LocationReservation";
 import Modality from "./pages/Modality";
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/addship",
         element: <AddShip />,
+      },
+      {
+        path: "/deleteship",
+        element: <DeleteShip />,
       },
       {
         path: "/connexion",
