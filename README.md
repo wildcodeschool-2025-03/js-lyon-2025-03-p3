@@ -2,6 +2,67 @@
 
 Ce projet est un monorepo JS, suivant l'architecture React-Express-MySQL telle qu'enseignée à la Wild Code School (v7.2.4) :
 
+# External Ship
+
+**External Ship** est un site web fictif de location de vaisseaux spatiaux. Il simule un véritable service de réservation destiné à des **particuliers** ou des **entreprises** souhaitant voyager dans l’espace.
+
+Ce projet a été développé dans le cadre d’une formation web afin de mettre en pratique un ensemble de compétences **fullstack** (front + back).
+
+---
+
+## Objectifs fonctionnels
+
+### Utilisateur
+- Parcours et visualisation de la flotte disponible
+- Consultation des fiches détaillées des vaisseaux
+- Connexion à un espace personnel sécurisé
+- Possibilité de louer un vaisseau (fonctionnalité à venir)
+
+### Entreprise
+- Connexion à un espace dédié
+- Ajout de nouveaux vaisseaux
+- Gestion de ses propres vaisseaux
+
+### Administrateur
+- Accès à une interface d’administration complète
+- Ajout et suppression de n’importe quel vaisseau
+- Lecture de tous les utilisateurs et entreprises inscrits
+- Supervision générale du système
+
+---
+
+## Stack technique
+
+### Frontend (client)
+- **React** + **TypeScript** : interface moderne, typée et dynamique
+- **React Router** : gestion des routes côté client
+- **Fetch API** : appels HTTP vers l’API
+
+### Backend (serveur)
+- **Express.js (Node.js)** : création de l’API REST
+- **TypeScript** : typage fort côté serveur
+- **JWT** : authentification sécurisée avec JSON Web Tokens
+- **argon2** : hachage des mots de passe
+- **cookie httpOnly** : stockage sécurisé du token côté serveur
+
+### Base de données
+- **MySQL** : gestion des utilisateurs, des vaisseaux, etc.
+
+---
+
+## Outils & Environnement
+
+- **dotenv** : gestion des variables d’environnement
+- **Postman** : tests des routes de l’API
+- **ESLint + Prettier** : qualité et cohérence du code
+- **Git + GitHub** : versionnement et collaboration
+
+---
+
+## Remarques
+
+Le projet est encore en cours d’évolution. Certaines fonctionnalités comme la location réelle des vaisseaux ou la gestion complète des entreprises sont prévues à terme.
+
 ```mermaid
 sequenceDiagram
     box Web Client
@@ -85,32 +146,142 @@ Il est pré-configuré avec un ensemble d'outils pour aider les étudiants à pr
 ### Structure des Dossiers
 
 ```plaintext
-my-project/
-│
-├── server/
-│   ├── app/
-│   │   ├── modules/
-│   │   │   ├── item/
-│   │   │   │   ├── itemActions.ts
-│   │   │   │   └── itemRepository.ts
-│   │   │   └── ...
-│   │   ├── app.ts
-│   │   ├── main.ts
-│   │   └── router.ts
-│   ├── database/
-│   │   ├── client.ts
-│   │   └── schema.sql
-│   ├── tests/
-│   ├── .env
-│   └── .env.sample
-│
-└── client/
-    ├── src/
-    │   ├── components/
-    │   ├── pages/
-    │   └── App.tsx
-    ├── .env
-    └── .env.sample
+ ── bin
+    ├── clean.js
+ ── client
+     ── playwright─report
+         ── data
+            ├── 3662687c249008c2ab33b17ba0f801675658551c.zip
+         ── trace
+             ── assets
+             ── codeMirrorModule.C3UTv─Ge.css
+             ── codicon.DCmgc─ay.ttf
+             ── defaultSettingsView.NYBT19Ch.css
+             ── index.BjQ9je─p.js
+             ── index.CFOW─Ezb.css
+             ── index.html
+             ── playwright─logo.svg
+             ── snapshot.html
+             ── sw.bundle.js
+             ── uiMode.BatfzHMG.css
+             ── uiMode.D5wwC2E1.js
+             ── uiMode.html
+            ├── xtermModule.Beg8tuEN.css
+        ├── index.html
+     ── src
+         ── UI
+            ├── UX
+         ── assets
+            ├── images
+         ── components
+             ── BetterUnderstand.css
+             ── BetterUnderstand.tsx
+             ── CreateUser.css
+             ── Filter.css
+             ── Filter.tsx
+             ── Footer.css
+             ── Footer.tsx
+             ── Header.css
+             ── Header.tsx
+             ── LoginForm.css
+             ── LoginForm.tsx
+             ── LogoutButton.tsx
+             ── NotAuth.tsx
+             ── RentForm.css
+             ── RentForm.tsx
+             ── ShipCard.css
+             ── ShipCard.tsx
+             ── ShipForm.css
+             ── ShipForm.tsx
+            ├── createUser.tsx
+         ── fonts
+             ── monasans
+            ├── supremespike
+         ── pages
+             ── AddShip.css
+             ── AddShip.tsx
+             ── Admin.tsx
+             ── Connection.css
+             ── Connection.tsx
+             ── Home.css
+             ── Home.tsx
+             ── LocationReservation.css
+             ── LocationReservation.tsx
+             ── Modality.css
+             ── Modality.tsx
+             ── ShipDetails.css
+             ── ShipDetails.tsx
+             ── Ships.css
+            ├── Ships.tsx
+         ── services
+         ── types
+            ├── vite─env.d.ts
+         ── App.css
+         ── App.tsx
+        ├── main.tsx
+     ── test─results
+        ├── header─Navigation─depuis─le─header─chromium
+            ├── trace.zip
+     ── tests
+        ├── header.spec.ts
+     ── index.html
+     ── package.json
+     ── playwright.config.ts
+     ── tsconfig.json
+     ── tsconfig.node.json
+    ├── vite.config.ts
+ ── server
+     ── bin
+         ── migrate.ts
+        ├── seed.ts
+     ── database
+         ── fixtures
+             ── AbstractSeeder.ts
+             ── ItemSeeder.ts
+            ├── UserSeeder.ts
+         ── checkConnection.ts
+         ── client.ts
+        ├── schema.sql
+     ── src
+         ── middlewares
+            ├── verifiyToken.ts
+         ── modules
+             ── auth
+             ── ship
+            ├── user
+         ── types
+            ├── express
+         ── app.ts
+         ── main.ts
+        ├── router.ts
+     ── tests
+        ├── install.test.ts
+     ── upload
+         ── 1751460524450─7.jpg
+         ── ship1.png
+         ── ship2.png
+         ── ship3.png
+         ── ship4.png
+         ── ship5.png
+         ── ship6.png
+         ── ship7.png
+         ── ship8.png
+        ├── ship9.png
+     ── jest.config.js
+     ── package.json
+    ├── tsconfig.json
+ ── Dockerfile
+ ── LICENSE.md
+ ── README.md
+ ── biome.json
+ ── commitlint.config.js
+ ── database─setup.sh
+ ── docker─compose.prod.yml
+ ── docker─compose.yml
+ ── package─lock.json
+ ── package.json
+├── structure.txt
+
 ```
 
 ### Mettre en place la base de données
