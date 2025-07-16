@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import "../components/CreateUser.css";
 
 function CreateUser() {
@@ -101,6 +102,14 @@ function CreateUser() {
               {strength}
             </span>
           </small>
+        </div>
+        <div className="validate-checkbox">
+          <label htmlFor="accept_cgu">
+            <Link to="/Modality" target="_blank" rel="noopener noreferrer">
+              J'accepte les CGU
+            </Link>
+          </label>
+          <input type="checkbox" id="accept_cgu" name="accept_cgu" required />
         </div>
         <button type="submit">Créer le Compte </button>
       </form>
