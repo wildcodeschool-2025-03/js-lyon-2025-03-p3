@@ -1,5 +1,4 @@
 import { useOutletContext } from "react-router";
-import { useNavigate } from "react-router";
 import "../components/LoginForm.css";
 
 type User = {
@@ -15,7 +14,6 @@ type Auth = {
 
 function LoginForm() {
   const baseURL = import.meta.env.VITE_API_URL;
-  const navigate = useNavigate();
 
   const { setAuth } = useOutletContext() as {
     auth: Auth | null;
@@ -47,7 +45,7 @@ function LoginForm() {
       const data = await response.json();
       setAuth(data);
 
-      navigate("/");
+      window.location.reload();
     } catch (err) {
       console.error(err);
       alert("Erreur de connexion");
