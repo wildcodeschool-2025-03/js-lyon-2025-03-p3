@@ -42,6 +42,17 @@ class ShipRepository {
     return rows as Ship[];
   }
 
+  async delete(id: number) {
+    // Execute the SQL DELETE query to remove a ship from the "ship" table
+    const [result] = await databaseClient.query<Result>(
+      "delete from ship where id = ?",
+      [id],
+    );
+
+    // Return the ID of the newly inserted ship
+    return result.affectedRows;
+  }
+
   async shipAvailable() {
     const [rows] = await databaseClient.query<Rows>(`
     select ship.quantity - COUNT(ship_id) as ship_available, ship.name from ship

@@ -83,4 +83,20 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, shipAvailable };
+const remove: RequestHandler = async (req, res, next) => {
+  try {
+    // Extract the ship id from the request parameters
+    const shipId = Number(req.params.id);
+
+    // Delete the ship
+    const result = await shipRepository.delete(shipId);
+
+    // Respond with HTTP 200 (OK) and the result of the deletion
+    res.status(200).json({ result, shipId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+export default { browse, read, add, remove, shipAvailable };
