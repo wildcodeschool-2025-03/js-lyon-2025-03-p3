@@ -1,3 +1,4 @@
+import NotAuth from "../components/NotAuth";
 import "./DeleteShip.css";
 import { useEffect, useState } from "react";
 
@@ -30,8 +31,28 @@ export default function DeleteShip() {
     // Optionnel : rafraîchir la liste après suppression
     setShips((prev) => prev.filter((ship) => ship.id !== Number(shipId)));
   };
+  const [isAuth, setIsAuth] = useState(Boolean);
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await fetch(`${baseURL}/api/me`, {
+          credentials: "include", // send the cookie to the server to verify the credentials
+        });
 
-  return (
+        if (res.ok) {
+          setIsAuth(true);
+        } else {
+          setIsAuth(false);
+        }
+      } catch (err) {
+        setIsAuth(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  return isAuth ? (
     <section id="containerDS">
       <h1 id="title">SUPPRIMER UN VAISSEAU SPATIAL</h1>
       <form onSubmit={deleteShipBtn}>
@@ -61,5 +82,7 @@ export default function DeleteShip() {
         </button>
       </form>
     </section>
+  ) : (
+    <NotAuth />
   );
 }

@@ -41,8 +41,9 @@ const read: RequestHandler = async (req, res, next) => {
 
 const shipAvailable: RequestHandler = async (req, res, next) => {
   try {
-    const ships = await shipRepository.shipAvailable();
-    res.status(200).json(ships);
+    const shipId = Number(req.params.id);
+    const ship = await shipRepository.shipAvailable(shipId);
+    res.status(200).json(ship);
   } catch (err) {
     next(err);
   }

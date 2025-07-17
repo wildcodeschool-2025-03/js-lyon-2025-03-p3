@@ -6,6 +6,7 @@ type Ship = {
   name: string;
   image: string;
   catchphrase: string;
+  ship_available?: number;
 };
 
 class ShipRepository {
@@ -53,14 +54,18 @@ class ShipRepository {
     return result.affectedRows;
   }
 
-  async shipAvailable() {
-    const [rows] = await databaseClient.query<Rows>(`
-    select ship.quantity - COUNT(ship_id) as ship_available, ship.name from ship
-    left join rent on ship_id = ship.id
-    group by ship.id
-  `);
+  async shipAvailable(id: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+   select ship.id, ship.quantity - COUNT(ship_id) as ship_available, ship.name 
+from ship
+left join rent on ship_id = ship.id
+where ship.id = ?
+  `,
+      [id],
+    );
 
-    return rows as Ship[];
+    return rows[0] as Ship;
   }
 
   // The U of CRUD - Update operation
