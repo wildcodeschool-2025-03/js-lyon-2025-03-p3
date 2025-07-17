@@ -1,0 +1,66 @@
+#containerDS {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem auto;
+  width: 95vw;
+  height: fit-content;
+  text-align: center;
+}
+#title {
+  font-family: "Mona Sans Bold", sans-serif;
+  font-size: xx-large;
+}
+
+#divDS {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#labelDS {
+  margin: 2rem;
+}
+#deleteShip {
+  display: flex;
+  background-color: var(--color-secondary);
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: "Mona Sans Regular", sans-serif;
+  padding: 10px 5px;
+  width: fit-content;
+  text-align: center;
+}
+
+#buttonDS {
+  padding: 12px 6px;
+  font-family: "Mona Sans Bold", sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--red);
+  border: none;
+  margin: 1rem 0 3rem;
+  transition: 0.35s;
+  &:hover {
+    background-color: var(--redHover);
+  }
+  &:active {
+    background-color: var(--redActive);
+  }
+}
+
+#disclaimerDS {
+  display: flex;
+  flex-direction: column;
+  background-color: --box-bg-color;
+  border: 1px solid var(--redActive);
+  border-radius: 3px;
+  box-shadow: 0 0 5px var(--redActive);
+  width: fit-content;
+  padding: 1rem 0.5rem;
+  margin: 2rem;
+}
+#subTitleH2 {
+  font-family: "Mona Sans Bold", sans-serif;
+  color: var(--redActive);
+}
