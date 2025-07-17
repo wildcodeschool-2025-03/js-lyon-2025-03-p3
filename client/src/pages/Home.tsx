@@ -34,7 +34,7 @@ function Home() {
           </figcaption>
           <section className="button-group">
             <BtnBooked id={ship.id} />
-            <BtnMoreInformations />
+            <BtnMoreInformations id={ship.id} />
           </section>
         </figure>
       ))}

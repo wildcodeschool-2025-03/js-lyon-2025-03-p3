@@ -5,23 +5,50 @@ import BtnMoreInformations from "../UI/UX/btnMoreInformations";
 import stewardess from "../assets/images/Shipdetailsimages/stewardess.webp";
 import bedroom from "../assets/images/ships/ship_1-bedroom_1.webp";
 import livingroom from "../assets/images/ships/ship_1-living_room_2.webp";
-import Ship1 from "../assets/images/ships/ship_1.webp";
+
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+
+type Ship = {
+  id: number;
+  name: string;
+  brand: string;
+  title: string;
+  image: string;
+};
 
 function ShipDetails() {
-  const id = 1;
+  const baseURL = import.meta.env.VITE_API_URL;
+  const { id } = useParams();
+  const [ship, setShip] = useState<Ship | null>(null);
+  const parsedId = id ? Number.parseInt(id, 10) : null;
+
+  if (!parsedId) return <p>ID invalide</p>;
+
+  useEffect(() => {
+    fetch(`${baseURL}/api/ships/${id}`)
+      .then((res) => res.json())
+      .then((data) => setShip(data))
+      .catch((err) => console.error("Erreur de chargement du vaisseau", err));
+  }, [id]);
+
+  if (!ship) {
+    return <p>Chargement en cours...</p>;
+  }
+
   return (
     <>
       <section id="main-content">
-        <img className="ship-img" src={Ship1} alt="ship1" />
+        <img className="ship-img" src={`${baseURL}${ship.image}`} alt="ship" />
         <section className="text-content">
           <section id="text-content-width">
-            <h3 id="ship-brand">PICTOR</h3>
-            <h2 id="ship-title">ZETA LEONIS</h2>
+            <h3 id="ship-brand">{ship.brand}</h3>
+            <h2 id="ship-title">{ship.name}</h2>
           </section>
         </section>
         <section className="buttons-wrapper">
-          <BtnBooked id={id} />
-          <BtnMoreInformations />
+          <BtnBooked id={Number.parseInt(id ?? "0", 10)} />
+          <BtnMoreInformations id={Number.parseInt(id ?? "0", 10)} />
         </section>
       </section>
 

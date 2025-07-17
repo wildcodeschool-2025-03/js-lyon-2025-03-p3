@@ -1,9 +1,14 @@
+import { Link } from "react-router";
 import "./StyleUIUX.css";
 
-export default function BtnMoreInformations() {
+interface ShipProps {
+  id: number;
+}
+
+export default function BtnMoreInformations({ id }: ShipProps) {
   return (
     <button type="button" className="BtnMoreInformations">
-      Plus d'informations...
+      <Link to={`/shipDetails/${id}`}>Plus d'informations...</Link>
     </button>
   );
 }
