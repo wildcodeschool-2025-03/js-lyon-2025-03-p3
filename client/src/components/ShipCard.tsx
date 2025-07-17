@@ -62,7 +62,7 @@ function ShipCard({ name, image, id }: ShipProps) {
       </div>
       <div className="btn-wrapper">
         <BtnBooked id={id} />
-        <BtnMoreInformations />
+        <BtnMoreInformations id={id} />
       </div>
       <div className="prices-info">
         <p>5000 k€ / jours terra</p> <p> 40000 k€ / 8jours terra</p>
