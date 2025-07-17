@@ -1,5 +1,6 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
+import type { NextFunction, Request, Response } from "express";
 import type { JwtPayload } from "jsonwebtoken";
 import jwt from "jsonwebtoken";
 import userRepository from "./userRepository";
@@ -11,24 +12,35 @@ const hashingOptions = {
   parallelism: 1,
 };
 
-const hashPassword: RequestHandler = async (req, res, next) => {
-  try {
-    // Extraction du mot de passe de la requête
-    const { password } = req.body;
+const hashPassword = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  // Extraction du mot de passe de la requête
+  const { password } = req.body;
 
-    // Hachage du mot de passe avec les options spécifiées
-    const hashedPassword = await argon2.hash(password, hashingOptions);
-
-    // Remplacement du mot de passe non haché par le mot de passe haché dans la requête
-    req.body.hashed_password = hashedPassword;
-
-    // Oubli du mot de passe non haché de la requête : il restera un secret même pour notre code dans les autres actions
-    req.body.password = undefined;
-
-    next();
-  } catch (err) {
-    next(err);
+  if (!password) {
+    res.status(400).json({ message: "Le mot de passe est requis" });
+    return;
   }
+  // Vérification: le mot de passe doit contenir plus de 8 caractères.
+  if (password.length < 8) {
+    res
+      .status(400)
+      .json({ message: "Le mot de passe doit contenir au moins 8 caractères" });
+    return;
+  }
+  // Hachage du mot de passe avec les options spécifiées
+  const hashedPassword = await argon2.hash(password, hashingOptions);
+
+  // Remplacement du mot de passe non haché par le mot de passe haché dans la requête
+  req.body.hashed_password = hashedPassword;
+
+  // Oubli du mot de passe non haché de la requête : il restera un secret même pour notre code dans les autres actions
+  req.body.password = undefined;
+
+  next();
 };
 
 // The B of BREAD - Browse (Read All) operation
