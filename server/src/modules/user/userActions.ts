@@ -2,6 +2,7 @@ import argon2 from "argon2";
 import type { RequestHandler } from "express";
 import type { JwtPayload } from "jsonwebtoken";
 import jwt from "jsonwebtoken";
+import shipRepository from "../ship/shipRepository";
 import userRepository from "./userRepository";
 
 const hashingOptions = {
@@ -114,23 +115,36 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-const rentShip: RequestHandler = async (req, res) => {
+const rentShip: RequestHandler = async (req, res, next) => {
   try {
-    // Get the token from the cookie
+    // 1. Récupération des données nécessaires
     const token = req.cookies.auth_token;
-
     const payload = jwt.verify(
       token,
       process.env.APP_SECRET as string,
     ) as JwtPayload;
-    // `sub` contain the user id
+
     const userId = Number(payload.sub);
-    // sent from the client
-    const shipId = req.body.shipId;
+    const shipId = Number(req.body.shipId);
+
     if (!userId || !shipId) {
-      res.status(400).json({ error: "Paramètres manquants" });
+      return res.status(400).json({ error: "Paramètres manquants" });
     }
 
+    // 2. Vérification de la disponibilité du vaisseau
+    const ship = await shipRepository.shipAvailable(shipId);
+
+    if (
+      !ship ||
+      ship.ship_available === undefined ||
+      ship.ship_available <= 0
+    ) {
+      console.info("Vaisseau indisponible");
+
+      return res.status(400).json({ error: "Vaisseau indisponible" });
+    }
+
+    // 3. Création de la réservation
     const insertId = await userRepository.createRent(shipId, userId);
 
     res.status(201).json({
@@ -141,9 +155,10 @@ const rentShip: RequestHandler = async (req, res) => {
         insertId,
       },
     });
-    console.log("Rent successful:", req.body, req.cookies);
+
+    console.info("Rent successful:", req.body, req.cookies);
   } catch (err) {
-    console.error(err);
+    next(err); // 🔄 Bonne pratique : passer l'erreur au middleware
   }
 };
 export default {
