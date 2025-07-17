@@ -3,7 +3,7 @@
   position: absolute;
   display: flex;
   justify-content: center;
-  top: 8px;
+  top: 5px;
   z-index: 1;
 }
 .logoWhite {
@@ -16,8 +16,8 @@
 }
 .logosRight {
   position: absolute;
-  right: 15px;
-  top: 27px;
+  right: 20px;
+  top: 33px;
   display: flex;
   gap: 5px;
 }
@@ -45,6 +45,29 @@
   padding-block: 3px;
   border-radius: 3px;
 }
+.isLogged-true,
+.isLogged-false {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 1px;
+  gap: 0.3rem;
+  right: 0.5rem;
+}
+
+.login-out-button {
+  text-align: center;
+  width: 100px;
+  padding-inline: 0.5rem;
+  padding-block: 0.25rem;
+  border-radius: 3px;
+  border: none;
+  font-family: Mona-sans, sans-serif;
+  font-weight: 550;
+  font-size: 0.9rem;
+  color: #000;
+  background-color: var(--color-secondary);
+}
 
 @media (min-width: 650px) {
   .header {
@@ -57,7 +80,6 @@
     display: none;
   }
   .logosRight {
-    right: 2rem;
     gap: 1rem;
   }
 }

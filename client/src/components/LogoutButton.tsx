@@ -1,11 +1,10 @@
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 type Props = {
   onLogout: () => void;
 };
 
 function LogoutButton({ onLogout }: Props) {
-  const navigate = useNavigate();
   const handleLogout = async () => {
     await fetch("http://localhost:3310/api/logout", {
       method: "POST",
@@ -18,15 +17,12 @@ function LogoutButton({ onLogout }: Props) {
     // Optionnel : redirection ou message
     console.info("Déconnecté");
     onLogout();
-    navigate("/connexion");
   };
 
   return (
-    <div>
-      <button type="button" onClick={handleLogout}>
-        Se déconnecter
-      </button>
-    </div>
+    <Link to="/" onClick={handleLogout} className="login-out-button">
+      Déconnexion
+    </Link>
   );
 }
 

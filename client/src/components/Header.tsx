@@ -10,8 +10,6 @@ import LogoutButton from "../components/LogoutButton";
 
 function Header() {
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 650);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const location = useLocation();
   const isHome = location.pathname === "/";
   const isShipDetails = location.pathname
@@ -26,14 +24,27 @@ function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const [isAuth, setIsAuth] = useState(Boolean);
+  const baseURL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    fetch("http://localhost:3310/api/me", {
-      credentials: "include",
-    })
-      .then((res) => {
-        setIsLoggedIn(res.ok);
-      })
-      .catch(() => setIsLoggedIn(false));
+    const checkAuth = async () => {
+      try {
+        const res = await fetch(`${baseURL}/api/me`, {
+          credentials: "include", // send the cookie to the server to verify the credentials
+        });
+
+        if (res.ok) {
+          setIsAuth(true);
+        } else {
+          setIsAuth(false);
+        }
+      } catch (err) {
+        setIsAuth(false);
+      }
+    };
+
+    checkAuth();
   }, []);
 
   return (
@@ -57,19 +68,20 @@ function Header() {
           <li>Nos services</li>
           <li>Nos tarifs</li>
           <li className="liButton">Qui sommes nous ?</li>
-          <li>
-            {isLoggedIn ? (
-              <>
-                <span style={{ color: "lightgreen", marginRight: "0.5rem" }}>
-                  ✅ Connecté
-                </span>
-                <LogoutButton onLogout={() => setIsLoggedIn(false)} />
-              </>
-            ) : (
-              <Link to="/connexion">Se connecter</Link>
-            )}
-          </li>
         </ul>
+      )}
+      {isAuth ? (
+        <section className="isLogged-true">
+          <div aria-label="logged in">🟢</div>
+          <LogoutButton onLogout={() => setIsAuth(false)} />
+        </section>
+      ) : (
+        <section className="isLogged-false">
+          <div aria-label="not logged">🔴</div>
+          <Link to="/connexion" className="login-out-button">
+            Connexion
+          </Link>
+        </section>
       )}
 
       <div className="logosRight">
