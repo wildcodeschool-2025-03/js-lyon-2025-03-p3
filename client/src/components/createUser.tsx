@@ -4,8 +4,10 @@ import "../components/CreateUser.css";
 
 function CreateUser() {
   const baseURL = import.meta.env.VITE_API_URL;
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState<"success" | "error" | "">("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const formData = {
@@ -13,14 +15,24 @@ function CreateUser() {
       password: form.get("password") as string,
     };
 
-    fetch(`${baseURL}/api/users`, {
+    const response = await fetch(`${baseURL}/api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     });
-    window.location.reload();
+    const data = await response.json();
+    console.log(data, "CECI EST LA REPONSE DE CREATION DE COMPTE");
+    //TODO RECUPERER LE RESULTAT ET L'AFFICHER
+
+    if (response.ok) {
+      setMessage("Compte crée avec succès!");
+      setMessageType("success");
+    } else {
+      setMessage(`Erreur : ${data.message}`);
+      setMessageType("error");
+    }
   };
 
   const [password, setPassword] = useState("");
@@ -112,6 +124,17 @@ function CreateUser() {
           <input type="checkbox" id="accept_cgu" name="accept_cgu" required />
         </div>
         <button type="submit">Créer le Compte </button>
+        {/* ✅ Affichage du message */}
+        {message && (
+          <p
+            style={{
+              color: messageType === "success" ? "green" : "red",
+              marginTop: "1rem",
+            }}
+          >
+            {message}
+          </p>
+        )}
       </form>
     </section>
   );

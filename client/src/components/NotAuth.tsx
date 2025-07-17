@@ -1,5 +1,5 @@
-import CreateUser from "./CreateUser";
 import LoginForm from "./LoginForm";
+import CreateUser from "./createUser";
 import "../components/LoginForm.css";
 import "../components/CreateUser.css";
 
