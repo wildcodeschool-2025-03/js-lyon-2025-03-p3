@@ -30,7 +30,7 @@ function CreateUser() {
       setMessage("Compte crée avec succès!");
       setMessageType("success");
     } else {
-      setMessage(`Erreur: ${data.message}`);
+      setMessage(`Erreur : ${data.message}`);
       setMessageType("error");
     }
   };
