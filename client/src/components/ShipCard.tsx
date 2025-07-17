@@ -1,4 +1,5 @@
 import "./ShipCard.css";
+import { useEffect, useState } from "react";
 import BtnBooked from "../UI/UX/btnBooked";
 import BtnMoreInformations from "../UI/UX/btnMoreInformations";
 import tucanaYellow from "../assets/images/iconCard/Tucana_Yellow.webp";
@@ -14,8 +15,17 @@ interface ShipProps {
   id: number;
 }
 function ShipCard({ name, image, id }: ShipProps) {
+  const [availability, setAvailability] = useState<number>(0);
   const baseURL = import.meta.env.VITE_API_URL;
-  return (
+  useEffect(() => {
+    fetch(`${baseURL}/api/available/ship/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setAvailability(data.ship_available);
+      });
+  }, [id]);
+  console.info(availability);
+  return availability > 0 ? (
     <figure className="ship-card">
       <section className="infos-top">
         <div className="logo-name-wrapper">
@@ -47,14 +57,19 @@ function ShipCard({ name, image, id }: ShipProps) {
         </div>
       </section>
       <img src={`${baseURL}${image}`} alt={name} />
+      <div className="quantity-wrapper">
+        <p className="ship-quantity">Quantité disponible : {availability}</p>
+      </div>
       <div className="btn-wrapper">
         <BtnBooked id={id} />
-        <BtnMoreInformations />
+        <BtnMoreInformations id={id} />
       </div>
       <div className="prices-info">
         <p>5000 k€ / jours terra</p> <p> 40000 k€ / 8jours terra</p>
       </div>
     </figure>
+  ) : (
+    ""
   );
 }
 

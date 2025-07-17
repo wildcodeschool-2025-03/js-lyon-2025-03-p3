@@ -6,6 +6,7 @@ type Ship = {
   name: string;
   image: string;
   catchphrase: string;
+  ship_available?: number;
 };
 
 class ShipRepository {
@@ -42,14 +43,29 @@ class ShipRepository {
     return rows as Ship[];
   }
 
-  async shipAvailable() {
-    const [rows] = await databaseClient.query<Rows>(`
-    select ship.quantity - COUNT(ship_id) as ship_available, ship.name from ship
-    left join rent on ship_id = ship.id
-    group by ship.id
-  `);
+  async delete(id: number) {
+    // Execute the SQL DELETE query to remove a ship from the "ship" table
+    const [result] = await databaseClient.query<Result>(
+      "delete from ship where id = ?",
+      [id],
+    );
 
-    return rows as Ship[];
+    // Return the ID of the newly inserted ship
+    return result.affectedRows;
+  }
+
+  async shipAvailable(id: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+   select ship.id, ship.quantity - COUNT(ship_id) as ship_available, ship.name 
+from ship
+left join rent on ship_id = ship.id
+where ship.id = ?
+  `,
+      [id],
+    );
+
+    return rows[0] as Ship;
   }
 
   // The U of CRUD - Update operation

@@ -53,6 +53,9 @@
   --text-color: #fdfdfd;
   --box-bg-color: #fdfdfd;
   --box-bg-border-color: #ddd;
+  --red: #641220;
+  --redHover: #a71e34;
+  --redActive: #e01e37;
 }
 
 * {

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import "./RentForm.css";
 
 interface ShipProps {
@@ -5,6 +6,7 @@ interface ShipProps {
 }
 
 function RentForm({ id }: ShipProps) {
+  const navigate = useNavigate();
   const baseURL = import.meta.env.VITE_API_URL;
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -27,6 +29,7 @@ function RentForm({ id }: ShipProps) {
       .catch((err) => {
         console.error("Network error :", err);
       });
+    navigate("/");
   };
   return (
     <form onSubmit={handleSubmit} className="rent-form">

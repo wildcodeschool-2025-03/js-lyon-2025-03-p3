@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import ShipCard from "../components/ShipCard";
 import "./LocationReservation.css";
 import NotAuth from "../components/NotAuth";
@@ -11,6 +11,16 @@ interface ShipProps {
   image: string;
 }
 export default function LocationReservation() {
+  const params = useParams();
+  const shipID = params.id;
+  useEffect(() => {
+    fetch(`${baseURL}/api/available/ship/${shipID}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setAvailability(data.ship_available);
+      });
+  }, [shipID]);
+  const [availability, setAvailability] = useState<number>(0);
   const [isAuth, setIsAuth] = useState(Boolean);
   const baseURL = import.meta.env.VITE_API_URL;
 
@@ -35,8 +45,6 @@ export default function LocationReservation() {
   }, []);
 
   const [ship, setShip] = useState<ShipProps | null>(null);
-  const params = useParams();
-  const shipID = params.id;
 
   useEffect(() => {
     fetch(`${baseURL}/api/ships/${shipID}`)
@@ -45,13 +53,28 @@ export default function LocationReservation() {
   }, [shipID]);
   console.log(ship);
 
-  return ship && isAuth ? (
+  if (!isAuth) return <NotAuth />;
+  if (!ship) return null;
+
+  return (
     <section className="reservation-recap" key={ship.id}>
-      <h2>Vous allez louer le vaisseau suivant :</h2>
-      <ShipCard name={ship.name} image={ship.image} id={ship.id} />
-      <RentForm id={ship.id} />
+      {availability > 0 ? (
+        <>
+          <h2>Vous allez louer le vaisseau suivant :</h2>
+          <ShipCard name={ship.name} image={ship.image} id={ship.id} />
+          <RentForm id={ship.id} />
+        </>
+      ) : (
+        <section className="not-available-wrapper">
+          <div className="not-available">
+            <h2>Ce vaisseau n'est pas disponible pour le moment.</h2>
+          </div>
+          <Link to="/ships" className="return-to-ship-button">
+            {" "}
+            Retour au choix des vaisseaux
+          </Link>
+        </section>
+      )}
     </section>
-  ) : (
-    <NotAuth />
   );
 }

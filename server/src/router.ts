@@ -11,8 +11,9 @@ import shipActions, { upload } from "./modules/ship/shipActions";
 
 router.get("/api/ships", shipActions.browse);
 router.get("/api/ships/:id", shipActions.read);
-router.get("/api/available/ships", shipActions.shipAvailable);
+router.get("/api/available/ship/:id", shipActions.shipAvailable);
 router.post("/api/ships", verifyToken, upload.single("image"), shipActions.add);
+router.delete("/api/ships/:id", shipActions.remove);
 
 /* ************************************************************************* */
 import authActions from "./modules/auth/authActions";
