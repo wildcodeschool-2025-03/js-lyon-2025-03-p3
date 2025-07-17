@@ -117,7 +117,7 @@ const add: RequestHandler = async (req, res, next) => {
 
 const rentShip: RequestHandler = async (req, res, next) => {
   try {
-    // 1. Récupération des données nécessaires
+    // Check credentials + ship id
     const token = req.cookies.auth_token;
     const payload = jwt.verify(
       token,
@@ -131,7 +131,7 @@ const rentShip: RequestHandler = async (req, res, next) => {
       return res.status(400).json({ error: "Paramètres manquants" });
     }
 
-    // 2. Vérification de la disponibilité du vaisseau
+    // Check availability
     const ship = await shipRepository.shipAvailable(shipId);
 
     if (
@@ -144,7 +144,7 @@ const rentShip: RequestHandler = async (req, res, next) => {
       return res.status(400).json({ error: "Vaisseau indisponible" });
     }
 
-    // 3. Création de la réservation
+    // 3. Create rent
     const insertId = await userRepository.createRent(shipId, userId);
 
     res.status(201).json({
@@ -158,7 +158,7 @@ const rentShip: RequestHandler = async (req, res, next) => {
 
     console.info("Rent successful:", req.body, req.cookies);
   } catch (err) {
-    next(err); // 🔄 Bonne pratique : passer l'erreur au middleware
+    next(err);
   }
 };
 export default {
