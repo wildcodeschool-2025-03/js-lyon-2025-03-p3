@@ -1,5 +1,5 @@
-import CreateUser from "../components/CreateUser";
 import LoginForm from "../components/LoginForm";
+import CreateUser from "../components/createUser";
 import "./Connection.css";
 
 function Connection() {
