@@ -6,6 +6,7 @@ type Ship = {
   name: string;
   image: string;
   catchphrase: string;
+  quantity: number;
   ship_available?: number;
 };
 
@@ -15,8 +16,8 @@ class ShipRepository {
   async create(ship: Omit<Ship, "id">) {
     // Execute the SQL INSERT query to add a new ship to the "ship" table
     const [result] = await databaseClient.query<Result>(
-      "insert into ship (name, image, catchphrase) values (?, ?, ?)",
-      [ship.name, ship.image, ship.catchphrase],
+      "insert into ship (name, image, catchphrase, quantity) values (?, ?, ?, ?)",
+      [ship.name, ship.image, ship.catchphrase, ship.quantity],
     );
 
     // Return the ID of the newly inserted ship
