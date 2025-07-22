@@ -25,14 +25,14 @@ create table rent (
 insert into ship (id, name, image, catchphrase, quantity)
 values
   (1, "Zeta Leonis", "/upload/ship1.webp", "Reussissez vos spaceTrips", 2),
-  (2, "Alpha Andromedae", "/upload/ship2.webq", "Laissez vous emporter", 3),
-  (3, "Theta Eridani", "/upload/ship3.webq", "Plus vite que la lumière", 1),
-  (4,"Alpha Ursae", "/upload/ship4.webq", "Partez là ou les étoiles vous appellent",2),
-  (5,"Kappa Persei",  "/upload/ship5.webq","Àu-delà des confins connus",2),
-  (6,"Kappa Herculis", "/upload/ship6.webq","Là où commence le voyage, finit la peur",1),
-  (7," -XI Cephei", "/upload/ship7.webq","Naviguez entre les étoiles",4),
-  (8,"Beta Centauri", "/upload/ship8.webq","Plus rapide qu'un battement de coeur",3),
-  (9," Epsilon Delphini", "/upload/ship9.webq", "Vitesse interstellaire garantie",1);
+  (2, "Alpha Andromedae", "/upload/ship2.webp", "Laissez vous emporter", 3),
+  (3, "Theta Eridani", "/upload/ship3.webp", "Plus vite que la lumière", 1),
+  (4,"Alpha Ursae", "/upload/ship4.webp", "Partez là ou les étoiles vous appellent",2),
+  (5,"Kappa Persei",  "/upload/ship5.webp","Àu-delà des confins connus",2),
+  (6,"Kappa Herculis", "/upload/ship6.webp","Là où commence le voyage, finit la peur",1),
+  (7," -XI Cephei", "/upload/ship7.webp","Naviguez entre les étoiles",4),
+  (8,"Beta Centauri", "/upload/ship8.webp","Plus rapide qu'un battement de coeur",3),
+  (9," Epsilon Delphini", "/upload/ship9.webp", "Vitesse interstellaire garantie",1);
 
   insert into user (id, email, hashed_password)
   values
