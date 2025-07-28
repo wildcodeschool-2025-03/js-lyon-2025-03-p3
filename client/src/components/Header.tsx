@@ -70,7 +70,9 @@ function Header() {
             <Link to="/addship">Ajouter votre vaisseau</Link>
           </li>
           <li>Nos tarifs</li>
-          <li className="liButton">Qui sommes nous ?</li>
+          <li className="liButton">
+            <Link to="/whoarewe">Qui sommes nous ?</Link>
+          </li>
         </ul>
       )}
       {isAuth ? (

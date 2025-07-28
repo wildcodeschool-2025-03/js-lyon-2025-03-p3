@@ -18,6 +18,7 @@ import DeleteShip from "./pages/DeleteShip";
 import Home from "./pages/Home";
 import LocationReservation from "./pages/LocationReservation";
 import Modality from "./pages/Modality";
+import QuiSommesNous from "./pages/QuiSommesNous";
 import ShipDetails from "./pages/ShipDetails";
 import Ships from "./pages/Ships";
 
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
       {
         path: "/", // The root path
         element: <Home />, // Renders the App component for the home page
+      },
+
+      {
+        path: "/whoarewe",
+        element: <QuiSommesNous />,
       },
 
       {
