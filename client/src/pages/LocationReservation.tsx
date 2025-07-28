@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import ShipCard from "../components/ShipCard";
 import "./LocationReservation.css";
+import CheckoutButton from "../components/CheckoutButton";
 import NotAuth from "../components/NotAuth";
 import RentForm from "../components/RentForm";
 
@@ -63,6 +64,7 @@ export default function LocationReservation() {
           <h2>Vous allez louer le vaisseau suivant :</h2>
           <ShipCard name={ship.name} image={ship.image} id={ship.id} />
           <RentForm id={ship.id} />
+          <CheckoutButton />
         </>
       ) : (
         <section className="not-available-wrapper">

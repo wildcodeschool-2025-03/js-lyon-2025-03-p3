@@ -21,6 +21,7 @@ import Modality from "./pages/Modality";
 import QuiSommesNous from "./pages/QuiSommesNous";
 import ShipDetails from "./pages/ShipDetails";
 import Ships from "./pages/Ships";
+import Success from "./pages/Success";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
@@ -71,6 +72,11 @@ const router = createBrowserRouter([
       {
         path: "/locationreservation/:id",
         element: <LocationReservation />,
+      },
+
+      {
+        path: "/success",
+        element: <Success />,
       },
 
       {

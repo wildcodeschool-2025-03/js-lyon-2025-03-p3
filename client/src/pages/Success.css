@@ -1,0 +1,44 @@
+.success-container {
+  text-align: center;
+  padding: 6rem 2rem 5rem;
+  max-width: 600px;
+  margin: 6rem auto 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Mona Sans Regular", sans-serif;
+}
+
+.success-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #28a745;
+}
+
+.success-container p {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.btn-home {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: #0d6efd;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.btn-home:hover {
+  background: var(primary-color);
+}
+
+footer {
+  margin: 0;
+  padding: 1rem;
+  background: #000; /* exemple */
+  color: white;
+  text-align: center;
+}

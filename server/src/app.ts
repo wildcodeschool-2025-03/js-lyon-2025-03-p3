@@ -72,6 +72,9 @@ import router from "./router";
 // Mount the API router under the "/api" endpoint
 app.use(router);
 
+import stripeRoutes from "./modules/stripe/stripeRoutes";
+app.use(stripeRoutes);
+
 /* ************************************************************************* */
 
 // Production-ready setup: What is it for?
