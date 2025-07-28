@@ -7,7 +7,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-family: "Mona Sans Regular", sans-serif;
   line-height: 1.7;
-  color: #000;
+  color: var(color-primary);
 }
 
 .text h2 {
@@ -15,7 +15,7 @@
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #000;
+  color: var(color-primary);
 }
 
 .text p,
