@@ -6,7 +6,7 @@
   overflow: hidden;
   &&:hover {
     transition: 0.2s ease-in;
-    outline: 5px solid gray;
+    outline: 5px solid var(--gray);
     outline-offset: 5px;
   }
   .BtnMoreInformations,
@@ -44,7 +44,7 @@
   letter-spacing: 2px;
   font-size: 2rem;
   text-align: center;
-  color: white;
+  color: var(--text-color);
 }
 .wrapper-logos {
   display: flex;
@@ -97,8 +97,8 @@
   color: var(--text-color);
 }
 .prices-info > p:last-child {
-  color: rgb(167, 165, 165);
+  color: var(--grayDarker);
 }
 .prices-info > p:first-child {
-  color: white;
+  color: var(--text-color);
 }

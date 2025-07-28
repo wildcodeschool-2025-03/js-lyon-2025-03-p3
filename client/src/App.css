@@ -52,10 +52,15 @@
   --color-secondary-active: #fcc595;
   --text-color: #fdfdfd;
   --box-bg-color: #fdfdfd;
+  --lightWhite: rgba(225, 225, 225, 0.496);
   --box-bg-border-color: #ddd;
   --red: #641220;
   --redHover: #a71e34;
   --redActive: #e01e37;
+  --grayMiddle: rgba(128, 128, 128, 0.323);
+  --gray: gray;
+  --grayDarker: rgb(167, 165, 165);
+  --grayLight: rgba(156, 156, 156, 0.294);
 }
 
 * {

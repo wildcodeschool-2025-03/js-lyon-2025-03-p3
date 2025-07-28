@@ -41,7 +41,7 @@
     background-color: var(--color-secondary);
   }
   &:active {
-    background-color: #f9953d;
+    background-color: var(--color-secondary-hover);
   }
 }
 #withdrawalAndReturnText {
@@ -108,7 +108,7 @@
   background-color: var(--color-secondary);
   transition: 0.3s ease-in-out;
   &:active {
-    background-color: #f9953d;
+    background-color: var(--color-secondary-hover);
   }
 }
 

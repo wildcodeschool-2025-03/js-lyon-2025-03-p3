@@ -1,4 +1,5 @@
 .header {
+  font-family: "Mona Sans Regular", sans-serif;
   width: 100%;
   position: absolute;
   display: flex;
@@ -62,10 +63,10 @@
   padding-block: 0.25rem;
   border-radius: 3px;
   border: none;
-  font-family: Mona-sans, sans-serif;
+  font-family: "Mona Sans Regular", sans-serif;
   font-weight: 550;
   font-size: 0.9rem;
-  color: #000;
+  color: var(--color-primary);
   background-color: var(--color-secondary);
 }
 
@@ -100,20 +101,3 @@
     color: var(--color-primary);
   }
 }
-
-/* Texte des li selon la page (normal, pas hover) */
-/* .header.home .headerNavBar li {
-  color: white;
-} */
-
-/* .header.other .headerNavBar li {
-  color: black;
-} */
-
-/* .header.home .headerNavBar li:hover {
-  background-color: black;
-} */
-
-/* .header.other .headerNavBar li:hover {
-  background-color: white;
-} */
