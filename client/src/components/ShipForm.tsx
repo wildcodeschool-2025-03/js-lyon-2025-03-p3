@@ -13,6 +13,7 @@ function ShipForm() {
     await fetch(`${baseURL}/api/ships`, {
       method: "POST",
       body: form,
+      credentials: "include",
     });
 
     navigate("/");
