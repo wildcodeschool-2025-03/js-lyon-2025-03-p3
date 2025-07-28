@@ -49,13 +49,14 @@ function Header() {
 
   return (
     <section className="header">
-      <img className="menuBurger" src={menu} alt="menu burger" />
-      <img
-        src={isMobile ? logoWhiteMobile : logoWhite}
-        alt="website icon"
-        className="logoWhite"
-      />
-
+      <Link to="/">
+        <img className="menuBurger" src={menu} alt="menu burger" />
+        <img
+          src={isMobile ? logoWhiteMobile : logoWhite}
+          alt="website icon"
+          className="logoWhite"
+        />
+      </Link>
       {!isMobile && (
         <ul
           className={`headerNavBar ${
@@ -65,7 +66,9 @@ function Header() {
           <li>
             <Link to="/ships">Notre flotte</Link>
           </li>
-          <li>Nos services</li>
+          <li>
+            <Link to="/addship">Ajouter votre vaisseau</Link>
+          </li>
           <li>Nos tarifs</li>
           <li className="liButton">Qui sommes nous ?</li>
         </ul>
