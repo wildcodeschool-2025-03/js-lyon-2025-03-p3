@@ -10,7 +10,8 @@ create table user (
   id int unsigned primary key auto_increment not null,
   email varchar(100) not null UNIQUE,
   hashed_password varchar(255) not null,
-  is_accept_cgu boolean default true
+  is_accept_cgu boolean default true,
+  is_admin boolean default false
 );
 
 create table rent (
@@ -34,6 +35,6 @@ values
   (8,"Beta Centauri", "/upload/ship8.png","Plus rapide qu'un battement de coeur",3),
   (9," Epsilon Delphini", "/upload/ship9.png", "Vitesse interstellaire garantie",1);
 
-  insert into user (id, email, hashed_password)
+  insert into user (id, email, hashed_password, is_admin)
   values
-  (1, "test@test.com", "test123nohash");
+  (1, "test@test.com", "$argon2id$v=19$m=19456,t=2,p=1$GVpZNGth5OIb9A3Z+PE3LA$ldaza/bh5hi9efVHluwDibMmAJ1buNfNCAS51xCKfE0", 1);

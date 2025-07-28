@@ -61,17 +61,26 @@ const browseRent: RequestHandler = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read: RequestHandler = async (req, res, next) => {
   try {
-    // Fetch a specific user based on the provided ID
-    const userId = Number(req.params.id);
-    const user = await userRepository.read(userId);
+    const token = req.cookies.auth_token;
 
+    // Fetch a specific user based on the provided ID
+
+    const payload = jwt.verify(
+      token,
+      process.env.APP_SECRET as string,
+    ) as JwtPayload;
+    const userId = Number(payload.sub);
+    const user = await userRepository.read(userId);
+    const isAdmin = user.is_admin;
     // If the user is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the user in JSON format
     if (user === null) {
       res.sendStatus(404);
-    } else {
-      res.json(user);
     }
+    res.status(201).json({
+      message: "Infos utilisateur",
+      user: { isAdmin },
+    });
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -101,6 +110,7 @@ const add: RequestHandler = async (req, res, next) => {
     const newuser = {
       email: req.body.email,
       hashed_password: req.body.hashed_password,
+      is_admin: false,
     };
 
     // Create the user

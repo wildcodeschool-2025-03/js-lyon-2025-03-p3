@@ -19,6 +19,7 @@ import authActions from "./modules/auth/authActions";
 
 router.post("/api/login", authActions.login);
 router.post("/api/logout", authActions.logout);
+// router.post("/api/auth", verifyToken, userActions.add);
 
 import userActions from "./modules/user/userActions";
 
@@ -33,5 +34,6 @@ import verifyToken from "./middlewares/verifiyToken";
 router.get("/api/me", verifyToken, (req, res) => {
   res.json(req.user);
 });
+router.get("/api/auth", verifyToken, userActions.read);
 
 export default router;

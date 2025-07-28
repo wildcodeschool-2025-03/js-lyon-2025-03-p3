@@ -7,6 +7,7 @@ type User = {
   hashed_password: string;
   is_admin: boolean;
 };
+
 type Rent = {
   id: number;
   user_id: number;

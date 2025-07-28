@@ -1,30 +1,26 @@
 import { useEffect, useState } from "react";
-import NotAuth from "../components/NotAuth";
 
 function Admin() {
-  const [isAuth, setIsAuth] = useState(Boolean);
+  const [isAdmin, setIsAdmin] = useState(Boolean);
   const baseURL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch(`${baseURL}/api/me`, {
+        fetch(`${baseURL}/api/auth`, {
           credentials: "include", // send the cookie to the server to verify the credentials
-        });
-
-        if (res.ok) {
-          setIsAuth(true);
-        } else {
-          setIsAuth(false);
-        }
+        })
+          .then((res) => res.json())
+          .then((data) => setIsAdmin(data.user.isAdmin));
       } catch (err) {
-        setIsAuth(false);
+        setIsAdmin(false);
       }
     };
 
     checkAuth();
   }, []);
-  return isAuth ? <h2>Page Admin</h2> : <NotAuth />;
+  console.info("isAdmin ?", isAdmin);
+  return isAdmin ? <h2>Page Admin</h2> : "vous n'êtes pas admin";
 }
 
 export default Admin;
