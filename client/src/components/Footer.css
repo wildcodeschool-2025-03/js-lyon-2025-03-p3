@@ -2,8 +2,8 @@
   font-family: "Mona Sans", sans-serif;
   display: flex;
   flex-direction: column;
-  background-color: #000;
-  color: #fdfdfd;
+  background-color: var(--color-primary);
+  color: var(--text-color);
 }
 .plus {
   color: var(--color-secondary);
@@ -13,7 +13,7 @@
 .informations {
   display: flex;
   flex-direction: row;
-  color: #f77908;
+  color: var(--color-secondary);
   justify-content: flex-start;
   align-items: center;
   font-family: "Supreme-spike", sans-serif;
@@ -68,13 +68,19 @@
   flex-direction: column;
   align-items: center;
   margin: 1rem 0;
-  color: #fdfdfd;
+  color: var(--text-color);
+}
+
+.brandName {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color);
 }
 .brandShipName {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fdfdfd;
+  color: var(--text-color);
   width: 200px;
   font-size: 16px;
 }
@@ -91,12 +97,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fdfdfd;
+  color: var(--text-color);
 }
 .serviceName,
 .ESName {
   text-align: center;
-  color: #fdfdfd;
+  color: var(--text-color);
   font-size: 16px;
 }
 .newsletter {
@@ -107,16 +113,16 @@
   width: 100%;
 }
 .inputNewsletter {
-  color: #fdfdfd;
-  background-color: #000;
+  color: var(--text-color);
+  background-color: var(--color-primary);
   width: 300px;
   border: none;
-  border-bottom: 1px solid #fdfdfd;
+  border-bottom: 1px solid var(--text-color);
   outline: none;
   font-size: 1rem;
 
   &::placeholder {
-    color: #fdfdfd;
+    color: var(--text-color);
     opacity: 1;
   }
 }
@@ -128,7 +134,7 @@
   width: 100%;
 }
 .social {
-  color: #fdfdfd;
+  color: var(--text-color);
   height: 30px;
   width: auto;
 }

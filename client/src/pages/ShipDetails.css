@@ -78,7 +78,7 @@
   margin: 0.5rem 0.8rem;
   height: 1px;
   border-radius: 1px;
-  background: linear-gradient(to right, black, white);
+  background: linear-gradient(to right, var(--color-primary), var(--text-color));
 }
 
 /* section 1 */
