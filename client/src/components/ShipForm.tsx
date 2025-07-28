@@ -13,6 +13,7 @@ function ShipForm() {
     await fetch(`${baseURL}/api/ships`, {
       method: "POST",
       body: form,
+      credentials: "include",
     });
 
     navigate("/");
@@ -43,6 +44,18 @@ function ShipForm() {
       <div className="label-wrapper inputFile">
         <label htmlFor="input-img">Envoyez votre image *</label>
         <input id="input-img" type="file" name="image" required />
+      </div>
+      <div className="label-wrapper">
+        <label htmlFor="input-quantity">Quantité *</label>
+        <input
+          id="input-quantity"
+          placeholder="Quantité"
+          type="number"
+          min="1"
+          max="10"
+          name="quantity"
+          required
+        />
       </div>
       <button id="button-addShip" type="submit">
         Créez votre offre

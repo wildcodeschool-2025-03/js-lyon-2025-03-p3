@@ -71,6 +71,7 @@ const add: RequestHandler = async (req, res, next) => {
       name: req.body.name,
       image: `/upload/${req.file?.filename}`,
       catchphrase: req.body.catchphrase,
+      quantity: req.body.quantity,
     };
 
     // Create the ship
