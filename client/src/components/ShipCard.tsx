@@ -1,5 +1,6 @@
 import "./ShipCard.css";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import BtnBooked from "../UI/UX/btnBooked";
 import BtnMoreInformations from "../UI/UX/btnMoreInformations";
 import tucanaYellow from "../assets/images/iconCard/Tucana_Yellow.webp";
@@ -16,6 +17,7 @@ interface ShipProps {
 }
 function ShipCard({ name, image, id }: ShipProps) {
   const [availability, setAvailability] = useState<number>(0);
+  const location = useLocation();
   const baseURL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     fetch(`${baseURL}/api/available/ship/${id}`)
@@ -24,7 +26,7 @@ function ShipCard({ name, image, id }: ShipProps) {
         setAvailability(data.ship_available);
       });
   }, [id]);
-  console.info(availability);
+  console.info(location.pathname);
   return availability > 0 ? (
     <figure className="ship-card">
       <section className="infos-top">
@@ -61,7 +63,11 @@ function ShipCard({ name, image, id }: ShipProps) {
         <p className="ship-quantity">Quantité disponible : {availability}</p>
       </div>
       <div className="btn-wrapper">
-        <BtnBooked id={id} />
+        {location.pathname === `/locationreservation/${id}` ? (
+          ""
+        ) : (
+          <BtnBooked id={id} />
+        )}
         <BtnMoreInformations id={id} />
       </div>
       <div className="prices-info">
