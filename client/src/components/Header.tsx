@@ -69,7 +69,6 @@ function Header() {
           <li>
             <Link to="/addship">Ajouter votre vaisseau</Link>
           </li>
-          <li>Nos tarifs</li>
           <li className="liButton">
             <Link to="/whoarewe">Qui sommes nous ?</Link>
           </li>
