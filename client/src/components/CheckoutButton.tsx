@@ -1,3 +1,5 @@
+import "./CheckoutButton.css";
+
 function CheckoutButton() {
   const handleClick = async () => {
     const res = await fetch(
