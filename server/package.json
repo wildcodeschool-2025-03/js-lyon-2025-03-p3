@@ -17,7 +17,8 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.1",
-    "mysql2": "^3.14.0"
+    "mysql2": "^3.14.0",
+    "stripe": "^18.3.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.6.0",

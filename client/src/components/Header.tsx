@@ -1,7 +1,7 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
-import contact from "../assets/images/logos/contact.svg";
+import admin from "../assets/images/logos/admin.svg";
 import help from "../assets/images/logos/help.svg";
 import logoWhite from "../assets/images/logos/logoWhite.png";
 import logoWhiteMobile from "../assets/images/logos/logoWhiteMobile.png";
@@ -90,7 +90,9 @@ function Header() {
 
       <div className="logosRight">
         <img className="helpLogo" src={help} alt="help logo" />
-        <img className="contactLogo" src={contact} alt="contact logo" />
+        <Link to="/admin">
+          <img className="contactLogo" src={admin} alt="contact logo" />
+        </Link>
       </div>
     </section>
   );

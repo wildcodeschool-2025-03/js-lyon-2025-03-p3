@@ -85,6 +85,10 @@ const read: RequestHandler = async (req, res, next) => {
     const userId = Number(payload.sub);
     const user = await userRepository.read(userId);
     const isAdmin = user.is_admin;
+    const firstname = user.firstname;
+    const lastname = user.lastname;
+
+    const email = user.email;
     // If the user is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the user in JSON format
     if (user === null) {
@@ -92,7 +96,7 @@ const read: RequestHandler = async (req, res, next) => {
     }
     res.status(201).json({
       message: "Infos utilisateur",
-      user: { isAdmin },
+      user: { isAdmin, email, firstname, lastname },
     });
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -121,6 +125,8 @@ const add: RequestHandler = async (req, res, next) => {
   try {
     // Extract the user data from the request body
     const newuser = {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
       email: req.body.email,
       hashed_password: req.body.hashed_password,
       is_admin: false,
