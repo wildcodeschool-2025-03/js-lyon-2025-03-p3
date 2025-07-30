@@ -37,15 +37,14 @@ function LoginForm() {
         credentials: "include",
         body: JSON.stringify(formData),
       });
-
+      if (response.ok) {
+        window.location.replace("/ships");
+      }
       if (!response.ok) {
         throw new Error("Identifiants invalides");
       }
-
       const data = await response.json();
       setAuth(data);
-
-      window.location.reload();
     } catch (err) {
       console.error(err);
       alert("Erreur de connexion");

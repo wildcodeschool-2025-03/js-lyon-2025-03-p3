@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
+import { AdminDashboard } from "../components/AdminDashboard";
+import "./Admin.css";
 
+interface User {
+  email: string;
+  firstname: string;
+  lastname: string;
+  isAdmin: boolean;
+}
 function Admin() {
-  const [isAdmin, setIsAdmin] = useState(Boolean);
+  const [user, setUser] = useState<User | null>(null);
   const baseURL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
@@ -11,16 +19,33 @@ function Admin() {
           credentials: "include", // send the cookie to the server to verify the credentials
         })
           .then((res) => res.json())
-          .then((data) => setIsAdmin(data.user.isAdmin));
-      } catch (err) {
-        setIsAdmin(false);
-      }
+          .then((data) => setUser(data.user));
+      } catch (err) {}
     };
 
     checkAuth();
   }, []);
-  console.info("isAdmin ?", isAdmin);
-  return isAdmin ? <h2>Page Admin</h2> : "vous n'êtes pas admin";
+  console.info("isAdmin ?", user?.email);
+  return user?.isAdmin ? (
+    <section className="admin-page">
+      <div className="admin-page-infos">
+        {" "}
+        <AdminDashboard
+          email={user?.email}
+          firstname={user?.firstname}
+          lastname={user?.lastname}
+          isAdmin={user?.isAdmin}
+        />{" "}
+      </div>
+    </section>
+  ) : (
+    <section className="admin-page">
+      <div className="admin-page-infos">
+        {" "}
+        Vous n'avez pas les droits d'accès à cette page.
+      </div>
+    </section>
+  );
 }
 
 export default Admin;

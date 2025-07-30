@@ -4,6 +4,8 @@ import type { Result, Rows } from "../../../database/client";
 type User = {
   id: number;
   email: string;
+  firstname: string;
+  lastname: string;
   hashed_password: string;
   is_admin: boolean;
 };
@@ -21,8 +23,8 @@ class UserRepository {
   async create(user: Omit<User, "id" | "is_admin">) {
     // Execute the SQL INSERT query to add a new ship to the "ship" table
     const [result] = await databaseClient.query<Result>(
-      "insert into user (email, hashed_password ) values (?, ?)",
-      [user.email, user.hashed_password],
+      "insert into user (email, firstname, lastname, hashed_password ) values (?, ?, ?, ?)",
+      [user.email, user.firstname, user.lastname, user.hashed_password],
     );
     // Return the ID of the newly inserted ship
     return result.insertId;

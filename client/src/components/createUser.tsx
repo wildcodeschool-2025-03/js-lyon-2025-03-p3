@@ -13,6 +13,8 @@ function CreateUser() {
     const formData = {
       email: form.get("email") as string,
       password: form.get("password") as string,
+      firstname: form.get("firstname") as string,
+      lastname: form.get("lastname") as string,
     };
 
     const response = await fetch(`${baseURL}/api/users`, {
@@ -89,6 +91,26 @@ function CreateUser() {
             type="email"
             id="input-email"
             name="email"
+            required
+          />
+        </div>
+        <div className="credentials-input">
+          <label htmlFor="email">Prénom</label>
+          <input
+            placeholder="Votre prénom"
+            type="text"
+            id="input-firstname"
+            name="firstname"
+            required
+          />
+        </div>
+        <div className="credentials-input">
+          <label htmlFor="lastname">Nom de famille</label>
+          <input
+            placeholder="Votre email"
+            type="text"
+            id="input-lastname"
+            name="lastname"
             required
           />
         </div>
