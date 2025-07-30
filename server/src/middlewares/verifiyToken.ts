@@ -19,7 +19,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction): void => {
   try {
     const decoded = jwt.verify(token, secret);
     req.user = decoded;
-    console.info("token verified successfully");
+
     next();
   } catch (err) {
     res.sendStatus(403);

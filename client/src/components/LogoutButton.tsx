@@ -15,7 +15,7 @@ function LogoutButton({ onLogout }: Props) {
     });
 
     // Optionnel : redirection ou message
-    console.info("Déconnecté");
+
     onLogout();
   };
 

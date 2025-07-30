@@ -13,7 +13,7 @@ function AddShip() {
         const res = await fetch(`${baseURL}/api/me`, {
           credentials: "include", // send the cookie to the server to verify the credentials
         });
-        console.info(res);
+
         if (res.ok) {
           setIsAuth(true);
         } else {

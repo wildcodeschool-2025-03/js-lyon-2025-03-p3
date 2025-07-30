@@ -25,7 +25,7 @@ function Admin() {
 
     checkAuth();
   }, []);
-  console.info("isAdmin ?", user?.email);
+
   return user?.isAdmin ? (
     <section className="admin-page">
       <div className="admin-page-infos">

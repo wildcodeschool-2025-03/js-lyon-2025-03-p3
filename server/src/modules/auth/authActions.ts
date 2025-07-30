@@ -11,7 +11,6 @@ const login: RequestHandler = async (req, res, next) => {
     const user = await userRepository.readByEmail(req.body.email);
 
     if (user === null) {
-      console.info("user not found");
       res.sendStatus(422);
       return;
     }
@@ -22,7 +21,6 @@ const login: RequestHandler = async (req, res, next) => {
     );
 
     if (!verified) {
-      console.info("email address and password aren't matching");
       res.sendStatus(422);
       return;
     }
@@ -49,8 +47,6 @@ const login: RequestHandler = async (req, res, next) => {
       user: userWithoutHashedPassword,
       message: "Login successful",
     });
-
-    console.info(`credentials matching, welcome ${user.email}`);
   } catch (err) {
     next(err);
   }

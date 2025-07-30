@@ -25,7 +25,7 @@ function CreateUser() {
       body: JSON.stringify(formData),
     });
     const data = await response.json();
-    console.log(data, "CECI EST LA REPONSE DE CREATION DE COMPTE");
+
     //TODO RECUPERER LE RESULTAT ET L'AFFICHER
 
     if (response.ok) {

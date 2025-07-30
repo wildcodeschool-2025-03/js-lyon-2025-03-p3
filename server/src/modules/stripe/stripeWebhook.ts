@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 
 const stripeWebhook = async (req: Request, res: Response): Promise<void> => {
   const sig = req.headers["stripe-signature"] as string;
-  console.log("WEB HOOK FROM STRIPE !");
+
   let event: Stripe.Event;
 
   try {
@@ -29,7 +29,6 @@ const stripeWebhook = async (req: Request, res: Response): Promise<void> => {
     const userId = session.metadata?.userId;
 
     if (!shipId || !userId) {
-      console.log(session.metadata, "[SESSION] META DATA ");
       console.warn(
         "Pas d'ID de vaisseau ou d'utilisateur trouvé dans metadata.",
       );
@@ -39,14 +38,12 @@ const stripeWebhook = async (req: Request, res: Response): Promise<void> => {
 
     try {
       await rentRepository.create(userId, shipId);
-      console.info("Paiement validé et base de donnée mise à jours !");
     } catch (err) {
       console.error("Erreur lors de la mise à jour du vaisseau :", err);
       res.status(500).send("Internal server error");
       return;
     }
   } else {
-    console.log(`Unhandled event type ${event.type}`);
   }
   res.status(200).json({ received: true });
 };

@@ -11,7 +11,6 @@ export function AdminDashboard({
   firstname,
   lastname,
 }: AdminInfos) {
-  console.info(email, isAdmin, firstname, lastname);
   return (
     <section>
       <h2>Vos informations</h2>
