@@ -62,7 +62,7 @@ export default function LocationReservation() {
         <>
           <h2>Vous allez louer le vaisseau suivant :</h2>
           <ShipCard name={ship.name} image={ship.image} id={ship.id} />
-          <CheckoutButton />
+          <CheckoutButton shipId={ship.id} />
         </>
       ) : (
         <section className="not-available-wrapper">

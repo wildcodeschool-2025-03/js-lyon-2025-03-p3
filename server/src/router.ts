@@ -16,6 +16,7 @@ router.post("/api/ships", verifyToken, upload.single("image"), shipActions.add);
 router.delete("/api/ships/:id", shipActions.remove);
 
 /* ************************************************************************* */
+
 import authActions from "./modules/auth/authActions";
 
 router.post("/api/login", authActions.login);
@@ -37,4 +38,11 @@ router.get("/api/me", verifyToken, (req, res) => {
 });
 router.get("/api/auth", verifyToken, userActions.read);
 
+/*import stripeWebhook from "./modules/stripe/stripeWebhook";
+router.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  stripeWebhook,
+);
+*/
 export default router;
