@@ -5,6 +5,8 @@ import express from "express";
 
 const app = express();
 
+app.post("/webhook", express.raw({ type: "application/json" }), stripeWebhook);
+
 // Configure it
 
 /* ************************************************************************* */
@@ -70,6 +72,7 @@ app.use(express.json());
 import router from "./router";
 
 // Mount the API router under the "/api" endpoint
+
 app.use(router);
 
 import stripeRoutes from "./modules/stripe/stripeRoutes";
@@ -122,6 +125,7 @@ if (fs.existsSync(clientBuildPath)) {
 // Important: Error-handling middleware should be defined last, after other app.use() and routes calls.
 
 import type { ErrorRequestHandler } from "express";
+import stripeWebhook from "./modules/stripe/stripeWebhook";
 
 // Define a middleware function to log errors
 const logErrors: ErrorRequestHandler = (err, req, res, next) => {

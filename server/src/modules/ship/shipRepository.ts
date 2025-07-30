@@ -69,6 +69,17 @@ where ship.id = ?
     return rows[0] as Ship;
   }
 
+  async markAsBooked(id: number) {
+    const [result] = await databaseClient.query<Result>(
+      `
+    UPDATE ship SET quantity = quantity - 1 WHERE id = ? AND quantity > 0
+    `,
+      [id],
+    );
+
+    return result.affectedRows;
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 

@@ -1,16 +1,26 @@
 import "./CheckoutButton.css";
 
-function CheckoutButton() {
+type CheckoutButtonProps = {
+  shipId: number;
+};
+
+function CheckoutButton({ shipId }: CheckoutButtonProps) {
+  const baseURL = import.meta.env.VITE_API_URL;
   const handleClick = async () => {
-    const res = await fetch(
-      "http://localhost:3310/api/create-checkout-session",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      },
-    );
+    const res = await fetch(`${baseURL}/api/create-checkout-session`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ shipId }),
+    });
+
     const data = await res.json();
-    window.location.href = data.url; // Redirection vers la page Stripe
+
+    if (data?.url) {
+      window.location.href = data.url;
+    } else {
+      console.error("URL de redirection Stripe non reçue");
+    }
   };
 
   return (
