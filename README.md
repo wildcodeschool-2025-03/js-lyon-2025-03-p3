@@ -57,11 +57,52 @@ Ce projet a été développé dans le cadre d’une formation web afin de mettre
 - **ESLint + Prettier** : qualité et cohérence du code
 - **Git + GitHub** : versionnement et collaboration
 
+## Stripe
+
+L'application utilise **Stripe** pour la gestion des paiements via Stripe Checkout.
+
+### Structure du projet
+
+Le projet est organisé en deux parties distinctes :
+
+### Dépendances Stripe
+
+| Partie     | Bibliothèque                   | Commande d'installation                         |
+|------------|--------------------------------|--------------------------------------------------|
+| Frontend   | `@stripe/stripe-js`            | `cd client && npm install @stripe/stripe-js`     |
+| Backend    | `stripe` (Stripe Node SDK)     | `cd server && npm install stripe`                |
+
+### 📌 Remarques importantes
+
+- Les dépendances **doivent être installées séparément** dans le client et le serveur.
+- `@stripe/stripe-js` est utilisée uniquement dans le frontend pour gérer la redirection vers le checkout.
+- `stripe` est utilisée uniquement côté serveur pour créer les sessions de paiement et gérer les webhooks.
+
+### Webhooks Stripe en local
+
+Pour écouter les webhooks en local via Stripe CLI :
+
+```bash
+stripe login
+stripe listen --forward-to https://localhost:3310/webhook
+
+### Ajouter au fichier .env coté server
+
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+STRIPE_API_VERSION=2025-06-30
+
+### Ajouter au fichier .env coté client
+
+VITE_STRIPE_PUBLIC_KEY=pk_test_
+
+
+## Fonctionnement général
+
+- Le backend crée une session de paiement Stripe, en injectant dans la `metadata` les informations nécessaires (`shipId`, `userId`, etc.).
+- Une fois le paiement validé, Stripe envoie un **webhook** à l’API pour confirmer la transaction et mettre à jour la base de données.
+
 ---
-
-## Remarques
-
-Le projet est encore en cours d’évolution. Certaines fonctionnalités comme la location réelle des vaisseaux ou la gestion complète des entreprises sont prévues à terme.
 
 ```mermaid
 sequenceDiagram
