@@ -14,8 +14,6 @@ function LogoutButton({ onLogout }: Props) {
       credentials: "include", // Important pour envoyer les cookies
     });
 
-    // Optionnel : redirection ou message
-    console.info("Déconnecté");
     onLogout();
   };
 

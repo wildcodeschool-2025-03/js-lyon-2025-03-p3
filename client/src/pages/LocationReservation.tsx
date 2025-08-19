@@ -51,7 +51,6 @@ export default function LocationReservation() {
       .then((response) => response.json())
       .then((data) => setShip(data));
   }, [shipID]);
-  console.log(ship);
 
   if (!isAuth) return <NotAuth />;
   if (!ship) return null;

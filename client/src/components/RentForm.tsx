@@ -10,7 +10,7 @@ function RentForm({ id }: ShipProps) {
   const baseURL = import.meta.env.VITE_API_URL;
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("form soumis");
+
     const formData = {
       shipId: id,
     };
@@ -23,7 +23,6 @@ function RentForm({ id }: ShipProps) {
       credentials: "include",
     })
       .then((res) => {
-        console.log("Server response :", res);
         return res.json();
       })
       .catch((err) => {
