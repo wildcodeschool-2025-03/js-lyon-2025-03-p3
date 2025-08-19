@@ -167,8 +167,6 @@ const rentShip: RequestHandler = async (req, res, next) => {
       ship.ship_available === undefined ||
       ship.ship_available <= 0
     ) {
-      console.info("Vaisseau indisponible");
-
       res.status(400).json({ error: "Vaisseau indisponible" });
     }
 
@@ -183,8 +181,6 @@ const rentShip: RequestHandler = async (req, res, next) => {
         insertId,
       },
     });
-
-    console.info("Rent successful:", req.body, req.cookies);
   } catch (err) {
     next(err);
   }
