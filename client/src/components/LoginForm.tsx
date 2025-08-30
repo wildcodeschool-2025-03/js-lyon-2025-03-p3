@@ -37,12 +37,10 @@ function LoginForm() {
         credentials: "include",
         body: JSON.stringify(formData),
       });
-      if (response.ok) {
-        window.location.replace("/ships");
-      }
       if (!response.ok) {
         throw new Error("Identifiants invalides");
       }
+      window.location.replace("/ships");
       const data = await response.json();
       setAuth(data);
     } catch (err) {
