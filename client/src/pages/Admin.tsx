@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AdminDashboard } from "../components/AdminDashboard";
 import "./Admin.css";
+import { Link } from "react-router";
 
 interface User {
   email: string;
@@ -27,17 +28,29 @@ function Admin() {
   }, []);
 
   return user?.isAdmin ? (
-    <section className="admin-page">
-      <div className="admin-page-infos">
-        {" "}
-        <AdminDashboard
-          email={user?.email}
-          firstname={user?.firstname}
-          lastname={user?.lastname}
-          isAdmin={user?.isAdmin}
-        />{" "}
-      </div>
-    </section>
+    <>
+      <section className="header">
+        <ul className="headerNavBarAdmin base-render">
+          <li>
+            <Link to="/addship">Ajouter votre vaisseau</Link>
+          </li>
+          <li>
+            <Link to="/deleteship">Supprimer votre vaisseau</Link>
+          </li>
+        </ul>
+      </section>
+      <section className="admin-page">
+        <div className="admin-page-infos">
+          {" "}
+          <AdminDashboard
+            email={user?.email}
+            firstname={user?.firstname}
+            lastname={user?.lastname}
+            isAdmin={user?.isAdmin}
+          />{" "}
+        </div>
+      </section>
+    </>
   ) : (
     <section className="admin-page">
       <div className="admin-page-infos">

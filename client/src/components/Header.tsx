@@ -66,12 +66,6 @@ function Header() {
           <li>
             <Link to="/ships">Notre flotte</Link>
           </li>
-          <li>
-            <Link to="/addship">Ajouter votre vaisseau</Link>
-          </li>
-          <li>
-            <Link to="/deleteship">Supprimer votre vaisseau</Link>
-          </li>
           <li className="liButton">
             <Link to="/whoarewe">Qui sommes nous ?</Link>
           </li>
