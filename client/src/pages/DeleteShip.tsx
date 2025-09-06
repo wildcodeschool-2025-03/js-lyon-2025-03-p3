@@ -24,6 +24,13 @@ export default function DeleteShip() {
     ) as HTMLSelectElement;
     const shipId = select.value;
 
+    const shipName = select.options[select.selectedIndex].text;
+    if (
+      !confirm(`Etes-vous sûr de vouloir supprimer le vaisseau ${shipName} ?`)
+    ) {
+      return;
+    }
+
     await fetch(`${baseURL}/api/ships/${shipId}`, {
       method: "DELETE",
     });
