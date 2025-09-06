@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("Navigation depuis le header", async ({ page }) => {
+test("Navigation depuis le header vers Notre flotte", async ({ page }) => {
   // 1. Aller sur la page d'accueil
   await page.goto("http://localhost:3000");
 
