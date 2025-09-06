@@ -84,16 +84,19 @@ const read: RequestHandler = async (req, res, next) => {
     ) as JwtPayload;
     const userId = Number(payload.sub);
     const user = await userRepository.read(userId);
+
+    // If the user is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the user in JSON format
+    if (user === null) {
+      res.sendStatus(404);
+      return;
+    }
+
     const isAdmin = user.is_admin;
     const firstname = user.firstname;
     const lastname = user.lastname;
 
     const email = user.email;
-    // If the user is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the user in JSON format
-    if (user === null) {
-      res.sendStatus(404);
-    }
     res.status(201).json({
       message: "Infos utilisateur",
       user: { isAdmin, email, firstname, lastname },
