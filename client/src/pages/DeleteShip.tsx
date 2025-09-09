@@ -1,6 +1,7 @@
 import NotAuth from "../components/NotAuth";
 import "./DeleteShip.css";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 interface ShipsProps {
   id: number;
@@ -37,6 +38,11 @@ export default function DeleteShip() {
 
     // Optionnel : rafraîchir la liste après suppression
     setShips((prev) => prev.filter((ship) => ship.id !== Number(shipId)));
+
+    toast.error(`Vaisseau "${shipName}" supprimé !`, {
+      position: "bottom-right",
+      autoClose: 3000,
+    });
   };
   const [isAuth, setIsAuth] = useState(Boolean);
   useEffect(() => {
@@ -77,7 +83,7 @@ export default function DeleteShip() {
         </div>
         <div id="disclaimerDS">
           <h2 id="subTitleH2">
-            ATTENTION: LA SUPPRESSION D'UN VAISSEAU EST IRRÉVESIBLE.
+            ATTENTION: LA SUPPRESSION D'UN VAISSEAU EST IRRÉVERSIBLE.
           </h2>
           <p>
             Veuillez bien contrôler que vous avez choisi le bon vaisseau avant

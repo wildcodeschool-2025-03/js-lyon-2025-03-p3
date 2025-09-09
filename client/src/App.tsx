@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Outlet } from "react-router";
+import { ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <Header />
       <Outlet context={{ auth, setAuth }} />
       <Footer />

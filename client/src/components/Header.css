@@ -58,6 +58,11 @@
   padding-block: 3px;
   border-radius: 3px;
 }
+.headerNavBarAdmin > li {
+  padding-inline: 10px;
+  padding-block: 3px;
+  border-radius: 3px;
+}
 .isLogged-true,
 .isLogged-false {
   position: absolute;

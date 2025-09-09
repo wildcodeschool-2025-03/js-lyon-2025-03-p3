@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AdminDashboard } from "../components/AdminDashboard";
 import "./Admin.css";
 import { Link } from "react-router";
+import "../components/Header.css";
 
 interface User {
   email: string;
@@ -32,10 +33,10 @@ function Admin() {
       <section className="header">
         <ul className="headerNavBarAdmin base-render">
           <li>
-            <Link to="/addship">Ajouter votre vaisseau</Link>
+            <Link to="/addship">Ajouter un vaisseau</Link>
           </li>
           <li>
-            <Link to="/deleteship">Supprimer votre vaisseau</Link>
+            <Link to="/deleteship">Supprimer un vaisseau</Link>
           </li>
         </ul>
       </section>

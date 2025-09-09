@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import "../components/CreateUser.css";
+import { toast } from "react-toastify";
 
 function CreateUser() {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -27,8 +28,10 @@ function CreateUser() {
     const data = await response.json();
 
     if (response.ok) {
-      setMessage("Compte crée avec succès!");
-      setMessageType("success");
+      toast.success("Compte crée avec succès", {
+        position: "bottom-right",
+        autoClose: 3000,
+      });
     } else {
       setMessage(`Erreur : ${data.message}`);
       setMessageType("error");
