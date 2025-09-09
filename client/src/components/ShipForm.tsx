@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import "./ShipForm.css";
 import { useNavigate } from "react-router";
 
@@ -17,6 +18,10 @@ function ShipForm() {
     });
 
     navigate("/");
+    toast.success("Vaisseau ajouté avec succès", {
+      position: "bottom-right",
+      autoClose: 3000,
+    });
   };
 
   return (

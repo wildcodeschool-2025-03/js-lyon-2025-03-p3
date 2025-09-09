@@ -7,8 +7,6 @@ const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 router.post("/api/create-checkout-session", verifyToken, async (req, res) => {
-  console.log(req.body, "SHIP ID");
-  console.log(req.user, "USER INFORMATION");
   if (!req.user || !req.user.sub) {
     res.status(401).json({ message: "Missing user from token" });
     return;

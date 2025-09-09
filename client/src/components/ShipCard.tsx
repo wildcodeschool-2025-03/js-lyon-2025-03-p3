@@ -26,7 +26,7 @@ function ShipCard({ name, image, id }: ShipProps) {
         setAvailability(data.ship_available);
       });
   }, [id]);
-  console.info(location.pathname);
+
   return availability > 0 ? (
     <figure className="ship-card">
       <section className="infos-top">

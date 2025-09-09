@@ -17,7 +17,6 @@ function Home() {
       .then((response) => response.json())
       .then((data) => setShips(data));
   }, []);
-  console.info(ships);
 
   return (
     <section>
