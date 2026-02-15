@@ -91,6 +91,7 @@
   justify-content: space-evenly;
   align-items: center;
   margin: 2rem 0;
+  gap: 0.7rem;
 }
 .serviceCat,
 .brandES {
@@ -115,7 +116,9 @@
 .inputNewsletter {
   color: var(--text-color);
   background-color: var(--color-primary);
+  max-width: 100%;
   width: 300px;
+  box-sizing: border-box;
   border: none;
   border-bottom: 1px solid var(--text-color);
   outline: none;
@@ -153,6 +156,7 @@
     flex-direction: column-reverse;
     justify-content: space-around;
     width: 22%;
+    min-width: 200px;
     height: 100%;
   }
   .logos {
