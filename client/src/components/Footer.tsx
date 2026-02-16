@@ -1,11 +1,11 @@
 import "./Footer.tsx";
 import "./Footer.css";
 import "../App.css";
-import bluesky from "../assets/images/Logos/Bluesky.svg";
-import facebook from "../assets/images/Logos/facebook.svg";
-import instagram from "../assets/images/Logos/instagram.svg";
-import threats from "../assets/images/Logos/threats.svg";
-import youtube from "../assets/images/Logos/youtube.svg";
+import bluesky from "../assets/images/logos/Bluesky.svg";
+import facebook from "../assets/images/logos/facebook.svg";
+import instagram from "../assets/images/logos/instagram.svg";
+import threats from "../assets/images/logos/threats.svg";
+import youtube from "../assets/images/logos/youtube.svg";
 
 function Footer() {
   return (

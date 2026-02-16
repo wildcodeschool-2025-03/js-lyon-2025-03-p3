@@ -5,7 +5,8 @@
     "check-types": "tsc --noEmit",
     "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest --verbose"
   },
   "dependencies": {
     "@stripe/stripe-js": "^7.6.1",

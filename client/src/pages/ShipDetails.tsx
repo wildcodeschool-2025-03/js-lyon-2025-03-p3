@@ -2,7 +2,7 @@ import "./ShipDetails.css";
 import "../UI/UX/StyleUIUX.css";
 import BtnBooked from "../UI/UX/btnBooked";
 import BtnMoreInformations from "../UI/UX/btnMoreInformations";
-import stewardess from "../assets/images/Shipdetailsimages/stewardess.webp";
+import stewardess from "../assets/images/shipDetailsImages/stewardess.webp";
 import bedroom from "../assets/images/ships/ship_1-bedroom_1.webp";
 import livingroom from "../assets/images/ships/ship_1-living_room_2.webp";
 
